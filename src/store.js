@@ -10,6 +10,10 @@ export default new Vuex.Store({
         date: "",
         time: "",
         guests: 10,
+        dietary: false,
+        supplies: false,
+        alcohol: false,
+        kids: false,
         sides: []
     },
     getters: {
@@ -18,6 +22,10 @@ export default new Vuex.Store({
         getDate: state => state.date,
         getTime: state => state.time,
         getGuests: state => state.guests,
+        getDietary: state => state.dietary,
+        getSupplies: state => state.supplies,
+        getAlcohol: state => state.alcohols,
+        getKids: state => state.kids,
         getSides: state => state.sides
     },
     mutations: {
@@ -35,6 +43,18 @@ export default new Vuex.Store({
         },
         updateGuests(state, guests) {
             state.guests = guests;
+        },
+        updateDietary(state, dietary) {
+            state.dietary = dietary;
+        },
+        updateSupplies(state, supplies) {
+            state.supplies = supplies;
+        },
+        updateKids(state, kids) {
+            state.kids = kids;
+        },
+        updateAlcohol(state, alcohol) {
+            state.alcohol = alcohol;
         },
         updateSides(state, sides) {
             state.sides = sides;
