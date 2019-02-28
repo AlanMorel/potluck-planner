@@ -3,20 +3,16 @@
         <form class="create-potluck-form">
             <h3>Create a New Potluck</h3>
             <div class="form-element">
-                <label for="title">Title</label>
                 <input type="text" name="title" :value="title" placeholder="Title" required @input="updateTitle">
             </div>
             <div class="form-element">
-                <label for="host">Host Name</label>
                 <input type="text" name="host" :value="host" placeholder="Host Name" required @input="updateHost">
             </div>
             <div class="form-element">
-                <label for="date">Date and Time</label>
                 <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
                 <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
             </div>
             <div class="form-element">
-                <label for="guests">Number of Guests</label>
                 <input type="number" name="guests" :value="guests" required @input="updateGuests" class="guest-input">
             </div>
             <div class="form-element">
