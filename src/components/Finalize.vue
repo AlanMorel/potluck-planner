@@ -24,17 +24,24 @@
                     "type" : "",
                     "dish" : ""
                 };
-                this.createSides(numPeople, dish);
-                // this.$router.push("/signupSheet");
+                this.createDishes(numPeople, 2.5, dish, "Sides");
+                this.createDishes(numPeople, 10, dish, "Mains");
+                this.createDishes(numPeople, 5, dish, "Desserts");
+                this.createDishes(numPeople, 6.65, dish, "Apps");
+                this.$router.push("/signupSheet");
             },
-            createSides(num, dish) {
-                var numSides = Math.round(num/2.5);
+            createDishes(people, denom, dish, type) {
+            	var numDishes = Math.round(people/denom);
                 var i = 0;
-                var sides = [];
-                for (i; i < numSides; i++) {
-                    sides.push(dish);
+                var dishes = [];
+                var item = dish;
+                for (i; i < numDishes; i++) {
+                	console.log('type');
+                	item.type = type;
+                	console.log(item);
+                    dishes.push(item);
                 }
-                this.$store.commit("updateSides", sides);
+                this.$store.commit("update" + type, dishes);
             }
         }
     }

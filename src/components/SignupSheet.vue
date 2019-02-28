@@ -3,7 +3,7 @@
         <div class="potluck-sheet__apps">
             <h3 class="potluck-sheet__apps">Apps & Snacks</h3>
             <ul>
-                <li class="potluck-sheet__signup">
+                <li v-for="app in this.apps" class="potluck-sheet__signup">
                     <div class="potluck-sheet__signup--name">
                         <label for="guestName">Name</label>
                         <input type="text" name="guestName">
@@ -54,7 +54,7 @@
         <div class="potluck-sheet__mains">
             <h3 class="potluck-sheet__mains">Mains</h3>
             <ul>
-                <li class="potluck-sheet__signup">
+                <li v-for="main in this.mains" class="potluck-sheet__signup">
                     <div class="potluck-sheet__signup--name">
                         <label for="guestName">Name</label>
                         <input type="text" name="guestName">
@@ -81,7 +81,7 @@
         <div class="potluck-sheet__desserts">
             <h3 class="potluck-sheet__desserts">Desserts</h3>
             <ul>
-                <li class="potluck-sheet__signup">
+                <li v-for="dessert in this.desserts" class="potluck-sheet__signup">
                     <div class="potluck-sheet__signup--name">
                         <label for="guestName">Name</label>
                         <input type="text" name="guestName">
@@ -113,7 +113,10 @@
         data() {
             return {
                 title: "",
-                sides: this.$store.getters.getSides
+                sides: this.$store.getters.getSides,
+                apps: this.$store.getters.getApps,
+                mains: this.$store.getters.getMains,
+                desserts: this.$store.getters.getApps
             }
         },
         methods: {

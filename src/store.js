@@ -10,7 +10,10 @@ export default new Vuex.Store({
         date: "",
         time: "",
         guests: 10,
-        sides: []
+        sides: [],
+        mains: [],
+        apps: [],
+        desserts: []
     },
     getters: {
         getTitle: state => state.title,
@@ -18,7 +21,10 @@ export default new Vuex.Store({
         getDate: state => state.date,
         getTime: state => state.time,
         getGuests: state => state.guests,
-        getSides: state => state.sides
+        getSides: state => state.sides,
+        getMains: state => state.mains,
+        getApps: state => state.apps,
+        getDesserts: state => state.desserts,
     },
     mutations: {
         updateTitle(state, title) {
@@ -38,6 +44,15 @@ export default new Vuex.Store({
         },
         updateSides(state, sides) {
             state.sides = sides;
+        },
+        updateMains(state, mains) {
+            state.mains = mains;
+        },
+        updateApps(state, apps) {
+            state.apps = apps;
+        },
+        updateDesserts(state, desserts) {
+            state.desserts = desserts;
         }
     },
     actions: {
