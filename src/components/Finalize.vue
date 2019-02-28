@@ -1,6 +1,6 @@
 <template>
     <section class="form-container">
-        <h3 v-on:click="createNewPotluck">Finalize</h3>
+        <h3>Finalize</h3>
         <div v-on:click="createNewPotluck" class="button">Finish</div>
     </section>
 </template>
