@@ -44,7 +44,7 @@
     }
 
     h3 {
-        margin: 40px 0 0;
+        margin-top: 0;
     }
 
     ul {
@@ -90,6 +90,7 @@
 
     input {
         outline: 0;
+        box-sizing: border-box;
     }
 
     input[type="text"],
@@ -98,8 +99,8 @@
     input[type="date"],
     input[type="time"] {
         border: 0;
-        padding: 0.5rem 0.25rem;
         width: 100%;
+        padding: 0.5rem 0.25rem;
         max-width: 15rem;
         border-bottom: solid 1px lighten($primary-color, 60%);
 
@@ -111,6 +112,7 @@
     input[type="date"],
     input[type="time"] {
         font-family: "Avenir", Helvetica, Arial, sans-serif;
+        max-width: calc(15rem / 2);
     }
 
     .button {
@@ -131,5 +133,18 @@
         display: block;
         border: solid 1px $primary-color;
         border-radius: 0.25rem;
+    }
+
+    .form-container {
+        max-width: 30rem;
+        width: 100%;
+        margin: auto;
+        padding: 1.5rem 2rem;
+        background-color: white;
+        border-radius: 0.25rem;
+    }
+
+    .form-element {
+        margin-bottom: 2rem;
     }
 </style>

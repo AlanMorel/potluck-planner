@@ -1,6 +1,7 @@
 <template>
-    <section class="create-potluck-container">
+    <section class="form-container">
         <form @submit.prevent="createNewPotluck" class="create-potluck-form">
+            <h3>Create a New Potluck</h3>
             <div class="form-element">
                 <label for="title">Title</label>
                 <input type="text" name="title" :value="title" placeholder="Title" required @input="updateTitle">
@@ -10,20 +11,16 @@
                 <input type="text" name="host" :value="host" placeholder="Host Name" required @input="updateHost">
             </div>
             <div class="form-element">
-                <label for="date">Date</label>
-                <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
-            </div>
-            <div class="form-element">
-                <label for="time">Time</label>
-                <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
+                <label for="date">Date and Time</label>
+                <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate" class="half-width">
+                <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime" class="half-width">
             </div>
             <div class="form-element">
                 <label for="guests">Number of Guests</label>
-                <input type="number" name="guests" :value="guests" required @input="updateGuests">
+                <input type="number" name="guests" :value="guests" required @input="updateGuests" class="guest-input">
             </div>
             <div class="form-element">
-                <input type="submit" value="Create New Simple Potluck" class="button dark-button">
-                <router-link to="/create/options" class="button explore-more">Or Explore More Options</router-link>
+                <router-link to="/create/options" class="button explore-more">Next</router-link>
             </div>
         </form>
     </section>
@@ -89,23 +86,16 @@
 </script>
 
 <style lang="scss">
-    .create-potluck-container {
-        max-width: 30rem;
-        width: 100%;
-        margin: auto;
-        padding: 1.5rem 2rem;
-        background-color: white;
-        border-radius: 0.25rem;
-    }
-
-    .form-element {
-        margin-bottom: 2rem;
-    }
 
     .explore-more {
         display: inline-block;
         padding: 0.5rem 1rem;
         text-decoration: none;
         border-radius: 0.25rem;
+        margin: 0;
+    }
+
+    input[type="number"].guest-input {
+        width: 5rem;
     }
 </style>
