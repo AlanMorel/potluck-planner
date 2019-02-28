@@ -28,7 +28,7 @@
         <div class="potluck-sheet__sides">
             <h3 class="potluck-sheet__sides">Sides</h3>
             <ul>
-                <li class="potluck-sheet__signup">
+                <li v-for="side in this.sides" class="potluck-sheet__signup">
                     <div class="potluck-sheet__signup--name">
                         <label for="guestName">Name</label>
                         <input type="text" name="guestName">
@@ -112,12 +112,13 @@
         name: "PotluckSheet",
         data() {
             return {
-                title: ""
+                title: "",
+                sides: this.$store.getters.getSides
             }
         },
         methods: {
             createNewPotluck() {
-                console.log("create new potluck!");
+                console.log("sides", this.$store.getters.getSides);
             }
         }
     }

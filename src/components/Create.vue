@@ -1,6 +1,6 @@
 <template>
     <section class="form-container">
-        <form @submit.prevent="createNewPotluck" class="create-potluck-form">
+        <form class="create-potluck-form">
             <h3>Create a New Potluck</h3>
             <div class="form-element">
                 <label for="title">Title</label>
@@ -12,8 +12,8 @@
             </div>
             <div class="form-element">
                 <label for="date">Date and Time</label>
-                <input type="date" name="date" :value="date" placeholder="Date" required @input="updateDate" class="half-width">
-                <input type="time" name="time" :value="time" placeholder="Time" required @input="updateTime" class="half-width">
+                <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate" class="half-width">
+                <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime" class="half-width">
             </div>
             <div class="form-element">
                 <label for="guests">Number of Guests</label>
@@ -61,7 +61,7 @@
             },
             updateGuests(e) {
                 this.$store.commit("updateGuests", e.target.value);
-            }
+            },
         }
     }
 </script>
