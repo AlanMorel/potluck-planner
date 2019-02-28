@@ -1,6 +1,5 @@
 <template>
     <section class="create-potluck-container">
-        <h1>SmörgasBoard</h1>
         <form @submit.prevent="createNewPotluck" class="create-potluck-form">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -31,7 +30,7 @@
 
 <script>
     export default {
-        name: "PotluckPlanner",
+        name: "Create",
         data() {
             return {
                 title: "",

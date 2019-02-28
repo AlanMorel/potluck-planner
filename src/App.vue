@@ -1,10 +1,9 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
-        </div>
-        <router-view/>
+        <h1>SmörgasBoard</h1>
+        <router-link to="/create">Create</router-link>
+        <router-link to="/join">Join</router-link>
+        <router-view />
     </div>
 </template>
 
@@ -19,6 +18,11 @@
         -moz-osx-font-smoothing: grayscale;
         color: #2c3e50;
         background-color: #F2F5F8;
+        padding: 1rem;
+    }
+
+    h1 {
+        margin-top: 0;
     }
 
     label {
