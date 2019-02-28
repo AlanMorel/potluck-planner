@@ -44,7 +44,8 @@
     }
 
     h3 {
-        margin-top: 0;
+        margin: 0;
+        margin-right: 1rem;
     }
 
     ul {
@@ -121,6 +122,7 @@
         max-width: 20rem;
         border-radius: 0.5rem;
         border: solid 1px lighten($primary-color, 60%);
+        cursor: pointer;
     }
 
     .dark-button {
@@ -153,6 +155,7 @@
         position: relative;
         visibility: hidden;
         cursor: pointer;
+        transform: translateY(-0.4rem);
 
         &:before,
         &:after {
