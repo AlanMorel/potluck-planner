@@ -3,26 +3,27 @@
         <form @submit.prevent="createNewPotluck" class="create-potluck-form">
             <div class="form-element">
                 <label for="title">Title</label>
-                <input type="text" name="title" v-model="title" required>
+                <input type="text" name="title" v-model="title" placeholder="Title" required>
             </div>
             <div class="form-element">
                 <label for="host">Host Name</label>
-                <input type="text" name="host" v-model="host" requred>
+                <input type="text" name="host" v-model="host" placeholder="Host Name" requred>
             </div>
             <div class="form-element">
                 <label for="date">Date</label>
-                <input type="date" name="date" v-model="date" requred>
+                <input type="date" name="date" v-model="date" placeholder="Date" requred>
             </div>
             <div class="form-element">
                 <label for="time">Time</label>
-                <input type="time" name="time" v-model="time" requred>
+                <input type="time" name="time" v-model="time" placeholder="Time" requred>
             </div>
             <div class="form-element">
-                <label for="people">Number of People</label>
-                <input type="number" name="people" v-model="people" required>
+                <label for="guests">Number of Guests</label>
+                <input type="number" name="guests" v-model="guests" required>
             </div>
             <div class="form-element">
-                <input type="submit" value="Create New Potluck">
+                <input type="submit" value="Create New Simple Potluck" class="button dark-button">
+                <input type="submit" value="Or Explore More Options" class="button">
             </div>
         </form>
     </section>
@@ -37,7 +38,7 @@
                 date: "",
                 time: "",
                 host: "",
-                people: 1
+                guests: 10
             }
         },
         methods: {
@@ -53,10 +54,12 @@
         max-width: 30rem;
         width: 100%;
         margin: auto;
-        padding: 1rem 0;
+        padding: 1.5rem 2rem;
+        background-color: white;
+        border-radius: 0.25rem;
     }
 
-    .create-potluck-form {
-
+    .form-element {
+        margin-bottom: 2rem;
     }
 </style>
