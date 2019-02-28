@@ -10,36 +10,12 @@
                     <div class="potluck-sheet__signup--dish form-element">
                         <input type="text" name="dishName" :value="dishName" placeholder="Dish">
                     </div>
-                    <v-menu
-                      bottom
-                      origin="center center"
-                      transition="scale-transition"
-                    >
-                      <v-btn
-                        slot="activator"
-                        color="#A0C3CC"
-                      >
-                        Appetizer
-                      </v-btn>
-
-                      <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Appetizer</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Snack</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Chips & Dip</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Cheese Board</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Finger Food</v-list-tile-title>
-                        </v-list-tile>
-                      </v-list>
-                    </v-menu>
+                      <v-select
+                        item-text="Appetizer"
+                        item-value="Appetizer"
+                        :items="appTypes"
+                        class="potluck-sheet--type-btn"
+                      ></v-select>
                     <div class="potluck-sheet__signup--notes form-element">
                         <input type="text" name="notes" :value="notes" placeholder="Notes">
                     </div>
@@ -56,39 +32,15 @@
                     <div class="potluck-sheet__signup--dish form-element">
                         <input type="text" name="dishName" :value="dishName" placeholder="Dish">
                     </div>
-                    <v-menu
-                      bottom
-                      origin="center center"
-                      transition="scale-transition"
-                    >
-                      <v-btn
-                        slot="activator"
-                        color="#A0C3CC"
-                      >
-                        Appetizer
-                      </v-btn>
-
-                      <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Side</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Greens</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Grains</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Salad</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Starch</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Meat</v-list-tile-title>
-                        </v-list-tile>
-                      </v-list>
-                    </v-menu>
+                    <v-select
+                        item-text="Sides"
+                        item-value="Sides"
+                        :items="sideTypes"
+                        class="potluck-sheet--type-btn"
+                      ></v-select>
+                    <div class="potluck-sheet__signup--notes form-element">
+                        <input type="text" name="notes" :value="notes" placeholder="Notes">
+                    </div>
                 </li>
             </ul>
         </div>
@@ -102,39 +54,15 @@
                     <div class="potluck-sheet__signup--dish form-element">
                         <input type="text" name="dishName" :value="dishName" placeholder="Dish">
                     </div>
-                    <v-menu
-                      bottom
-                      origin="center center"
-                      transition="scale-transition"
-                    >
-                      <v-btn
-                        slot="activator"
-                        color="#A0C3CC"
-                      >
-                        Appetizer
-                      </v-btn>
-
-                      <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Main</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Meat</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>red Meat</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Poultry</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Fish</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Vegetarian</v-list-tile-title>
-                        </v-list-tile>
-                      </v-list>
-                    </v-menu>
+                    <v-select
+                        item-text="Mains"
+                        item-value="Mains"
+                        :items="mainTypes"
+                        class="potluck-sheet--type-btn"
+                      ></v-select>
+                    <div class="potluck-sheet__signup--notes form-element">
+                        <input type="text" name="notes" :value="notes" placeholder="Notes">
+                    </div>
                 </li>
             </ul>
         </div>
@@ -148,39 +76,15 @@
                     <div class="potluck-sheet__signup--dish form-element">
                         <input type="text" name="dishName" :value="dishName" placeholder="Dish">
                     </div>
-                    <v-menu
-                      bottom
-                      origin="center center"
-                      transition="scale-transition"
-                    >
-                      <v-btn
-                        slot="activator"
-                        color="#A0C3CC"
-                      >
-                        Appetizer
-                      </v-btn>
-
-                      <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Dessert</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Pie</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Cake</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Ice Cream</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Cookies</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
-                          <v-list-tile-title>Bars</v-list-tile-title>
-                        </v-list-tile>
-                      </v-list>
-                    </v-menu>
+                    <v-select
+                        item-text="Desserts"
+                        item-value="Desserts"
+                        :items="dessertTypes"
+                        class="potluck-sheet--type-btn"
+                      ></v-select>
+                    <div class="potluck-sheet__signup--notes form-element">
+                        <input type="text" name="notes" :value="notes" placeholder="Notes">
+                    </div>
                 </li>
             </ul>
         </div>
@@ -196,7 +100,11 @@
                 sides: this.$store.getters.getSides,
                 apps: this.$store.getters.getApps,
                 mains: this.$store.getters.getMains,
-                desserts: this.$store.getters.getApps
+                desserts: this.$store.getters.getApps,
+                appTypes: ['Appetizer', 'Snacks', 'Chips & Dip', 'Cheeseboard', 'Finger Food'],
+                sideTypes: ["Greens", "Grains", "Salad", "Meat", "Starch"],
+                mainTypes: ["Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
+                dessertTypes: ["Pie", "Cake", "Ice Cream", "Cookies", "Bars"]
             }
         },
         methods: {
@@ -217,5 +125,24 @@
     .potluck-sheet__signup--dish,
     .potluck-sheet__signup--notes {
         margin: 1rem;
+    }
+
+    .theme--light.v-text-field>.v-input__control>.v-input__slot:before {
+        border-color: #A0C3CC;
+    }
+
+    .potluck-sheet--type-btn {
+        min-width: 10rem;
+        text-transform: capitalize;
+
+        input[type="text"] {
+            border-bottom: none;
+            display: none;
+        }
+    }
+
+    .v-menu__content {
+        top: 10px !important;
+        left: 0 !important;
     }
 </style>
