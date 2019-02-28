@@ -7,15 +7,15 @@
             </div>
             <div class="form-element">
                 <label for="host">Host Name</label>
-                <input type="text" name="host" v-model="host" requred>
+                <input type="text" name="host" v-model="host" required>
             </div>
             <div class="form-element">
                 <label for="date">Date</label>
-                <input type="date" name="date" v-model="date" requred>
+                <input type="date" name="date" v-model="date">
             </div>
             <div class="form-element">
                 <label for="time">Time</label>
-                <input type="time" name="time" v-model="time" requred>
+                <input type="time" name="time" v-model="time">
             </div>
             <div class="form-element">
                 <label for="people">Number of People</label>
@@ -42,7 +42,12 @@
         },
         methods: {
             createNewPotluck() {
-                console.log("create new potluck!");
+                var numPeople = (this.people);
+                this.createSides(numPeople);
+            },
+            createSides(num) {
+                var sides = num/2;
+                console.log(sides);
             }
         }
     }
