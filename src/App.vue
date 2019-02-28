@@ -146,4 +146,43 @@
     .form-element {
         margin-bottom: 2rem;
     }
+
+    .slider {
+        width: auto;
+        display: block;
+        position: relative;
+        visibility: hidden;
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            content: '';
+            border-radius: 2rem;
+            height: 1.5rem;
+            display: block;
+            position: absolute;
+            visibility: visible;
+        }
+
+        &:before {
+            background-color: rgba(0, 0, 0, 0.25);
+            width: 2.75rem;
+            left: 0rem;
+        }
+
+        &:checked:before {
+            background-color: $primary-color;
+        }
+
+        &:after {
+            background-color: white;
+            width: 1.5rem;
+            transition: 0.3s ease;
+            transform: scale(0.8) translateX(0);
+        }
+
+        &:checked:after {
+            transform: scale(0.8) translateX(1.5rem);
+        }
+    }
 </style>

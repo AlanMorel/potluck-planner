@@ -16,20 +16,20 @@
             </li>
         </ul>
         <div class="form-element">
-            <label for="dietary">Dietary</label>
-            <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary">
+            <label for="dietary">Dietary restrictions?</label>
+            <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary" class="slider">
         </div>
         <div class="form-element">
-            <label for="supplies">Dietary</label>
-            <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies">
+            <label for="supplies">Do you need supplies?</label>
+            <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies" class="slider">
         </div>
         <div class="form-element">
-            <label for="kids">Kids</label>
-            <input type="checkbox" name="kids" :value="kids" @input="updateKids">
+            <label for="kids">Kids?</label>
+            <input type="checkbox" name="kids" :value="kids" @input="updateKids" class="slider">
         </div>
         <div class="form-element">
-            <label for="alcohol">Alcohol</label>
-            <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol">
+            <label for="alcohol">Alcohol?</label>
+            <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
         </div>
         <router-link to="/create/finalize" class="button explore-more">Skip</router-link>
     </section>
