@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+
 import PotluckPlanner from "./components/PotluckPlanner.vue";
 
 Vue.use(Router);
