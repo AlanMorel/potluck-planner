@@ -18,6 +18,7 @@
                       <v-btn
                         slot="activator"
                         color="#A0C3CC"
+                        class="potluck-sheet--type-btn"
                       >
                         Appetizer
                       </v-btn>
@@ -27,16 +28,13 @@
                           <v-list-tile-title>Appetizer</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile>
-                          <v-list-tile-title>Snack</v-list-tile-title>
-                        </v-list-tile>
-                        <v-list-tile>
                           <v-list-tile-title>Chips & Dip</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile>
-                          <v-list-tile-title>Cheese Board</v-list-tile-title>
+                          <v-list-tile-title>Finger Food</v-list-tile-title>
                         </v-list-tile>
                         <v-list-tile>
-                          <v-list-tile-title>Finger Food</v-list-tile-title>
+                          <v-list-tile-title>Meat</v-list-tile-title>
                         </v-list-tile>
                       </v-list>
                     </v-menu>
@@ -64,14 +62,12 @@
                       <v-btn
                         slot="activator"
                         color="#A0C3CC"
+                        class="potluck-sheet--type-btn"
                       >
-                        Appetizer
+                        Side
                       </v-btn>
 
                       <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Side</v-list-tile-title>
-                        </v-list-tile>
                         <v-list-tile>
                           <v-list-tile-title>Greens</v-list-tile-title>
                         </v-list-tile>
@@ -89,6 +85,9 @@
                         </v-list-tile>
                       </v-list>
                     </v-menu>
+                    <div class="potluck-sheet__signup--notes form-element">
+                        <input type="text" name="notes" :value="notes" placeholder="Notes">
+                    </div>
                 </li>
             </ul>
         </div>
@@ -110,14 +109,12 @@
                       <v-btn
                         slot="activator"
                         color="#A0C3CC"
+                        class="potluck-sheet--type-btn"
                       >
-                        Appetizer
+                        Main
                       </v-btn>
 
                       <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Main</v-list-tile-title>
-                        </v-list-tile>
                         <v-list-tile>
                           <v-list-tile-title>Meat</v-list-tile-title>
                         </v-list-tile>
@@ -135,6 +132,9 @@
                         </v-list-tile>
                       </v-list>
                     </v-menu>
+                    <div class="potluck-sheet__signup--notes form-element">
+                        <input type="text" name="notes" :value="notes" placeholder="Notes">
+                    </div>
                 </li>
             </ul>
         </div>
@@ -156,14 +156,12 @@
                       <v-btn
                         slot="activator"
                         color="#A0C3CC"
+                        class="potluck-sheet--type-btn"
                       >
-                        Appetizer
+                        Dessert
                       </v-btn>
 
                       <v-list>
-                        <v-list-tile>
-                          <v-list-tile-title>Dessert</v-list-tile-title>
-                        </v-list-tile>
                         <v-list-tile>
                           <v-list-tile-title>Pie</v-list-tile-title>
                         </v-list-tile>
@@ -181,6 +179,9 @@
                         </v-list-tile>
                       </v-list>
                     </v-menu>
+                    <div class="potluck-sheet__signup--notes form-element">
+                        <input type="text" name="notes" :value="notes" placeholder="Notes">
+                    </div>
                 </li>
             </ul>
         </div>
@@ -196,7 +197,8 @@
                 sides: this.$store.getters.getSides,
                 apps: this.$store.getters.getApps,
                 mains: this.$store.getters.getMains,
-                desserts: this.$store.getters.getApps
+                desserts: this.$store.getters.getApps,
+                appTypes: ['Appetizer', 'Snacks', 'Chips & Dip', 'Cheeseboard', 'Finger Food']
             }
         },
         methods: {
@@ -217,5 +219,14 @@
     .potluck-sheet__signup--dish,
     .potluck-sheet__signup--notes {
         margin: 1rem;
+    }
+
+    .potluck-sheet--type-btn {
+        width: 7.5rem;
+        text-transform: capitalize;
+
+        input[type="text"] {
+
+        }
     }
 </style>
