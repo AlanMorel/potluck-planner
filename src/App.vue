@@ -22,6 +22,12 @@
     $primary-color: #2c3e50;
     $active-color: #256cb3;
 
+    html,
+    body,
+    #app {
+        height: 100%;
+    }
+
     body {
         margin: 0;
     }
@@ -42,6 +48,7 @@
 
     h3 {
         margin: 0;
+        font-size: 1.5rem;
     }
 
     label {
@@ -170,7 +177,7 @@
 
         label {
             margin-right: 1rem;
-            transform: translateY(0.25rem);
+            transform: translateY(0.5rem);
         }
     }
 
@@ -180,7 +187,6 @@
         position: relative;
         visibility: hidden;
         cursor: pointer;
-        transform: translateY(-0.4rem);
 
         &:before,
         &:after {

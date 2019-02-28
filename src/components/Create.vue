@@ -27,7 +27,7 @@
             </div>
         </form>
         <div class="potluck-splash">
-            <img :src="splash" />
+            <img src="../assets/splash1.jpg">
         </div>
     </section>
 </template>
@@ -35,11 +35,6 @@
 <script>
     export default {
         name: "Create",
-        data() {
-            return {
-                splash: "https://www.thespruceeats.com/thmb/mmZ9HCaTJHyihZGqbL-DRxrUTJI=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/FrenchToasty-Oct-2-2011-5-06-AM-56b0b8635f9b58b7d0252b5f.JPG"
-            }
-        },
         computed: {
             event() {
                 return this.$store.getters.getEvent;
@@ -90,7 +85,6 @@
 </script>
 
 <style lang="scss">
-
     .create-potluck-form {
         width: 50%;
         padding: 2rem;

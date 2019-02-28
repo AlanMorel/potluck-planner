@@ -4,7 +4,7 @@
             <div class="options-header">
                 <h3>Options</h3>
                 <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
-                    {{ shouldContinue() ? 'Continue' : 'Skip This Step' }}
+                    {{ shouldContinue() ? 'Continue →' : 'Skip This Step' }}
                 </span>
             </div>
             <ul class="event-options">
@@ -22,24 +22,24 @@
                 </li>
             </ul>
             <div class="form-element">
-                <label for="dietary">Dietary restrictions?</label>
+                <label for="dietary" class="slider-label">Dietary restrictions?</label>
                 <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary" class="slider">
             </div>
             <div class="form-element">
-                <label for="supplies">Do you need supplies?</label>
+                <label for="supplies" class="slider-label">Do you need supplies?</label>
                 <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies" class="slider">
             </div>
             <div class="form-element">
-                <label for="kids">Kids?</label>
+                <label for="kids" class="slider-label">Will kids be present?</label>
                 <input type="checkbox" name="kids" :value="kids" @input="updateKids" class="slider">
             </div>
             <div class="form-element">
-                <label for="alcohol">Alcohol?</label>
+                <label for="alcohol" class="slider-label">Would you like alcohol?</label>
                 <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
             </div>
         </div>
         <div class="potluck-splash">
-            <img :src="splash" />
+            <img src="../assets/splash1.jpg">
         </div>
     </section>
 </template>
@@ -71,8 +71,7 @@
                             "Christmas"
                         ]
                     }
-                ],
-                splash: "https://www.thespruceeats.com/thmb/Ck9PE1lWegA5ed-S-uiVSdrWCh0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/UltimateRanchFriedChickenClubSandwich-GrilledCheeseSocial-5bf30d2146e0fb0026fa272c.JPG"
+                ]
             }
         },
         computed: {
@@ -131,23 +130,22 @@
                 this.$store.commit("updateAlcohol", e.target.checked);
             },
             createNewPotluck() {
-                var numPeople = this.guests;
-                var dish = {
+                this.createDishes(2.5, "Sides");
+                this.createDishes(10, "Mains");
+                this.createDishes(5, "Desserts");
+                this.createDishes(6.65, "Apps");
+                this.$router.push("/signupSheet");
+            },
+            createDishes(denom, type) {
+                var guests = this.guests;
+                var numDishes = Math.round(guests / denom);
+                var i = 0;
+                var dishes = [];
+                var item = {
                     "name" : "",
                     "type" : "",
                     "dish" : ""
                 };
-                this.createDishes(numPeople, 2.5, dish, "Sides");
-                this.createDishes(numPeople, 10, dish, "Mains");
-                this.createDishes(numPeople, 5, dish, "Desserts");
-                this.createDishes(numPeople, 6.65, dish, "Apps");
-                this.$router.push("/signupSheet");
-            },
-            createDishes(people, denom, dish, type) {
-                var numDishes = Math.round(people / denom);
-                var i = 0;
-                var dishes = [];
-                var item = dish;
                 for (i; i < numDishes; i++) {
                     item.type = type;
                     dishes.push(item);
@@ -169,6 +167,7 @@
         }
 
         label {
+            font-size: 1.25rem;
             margin-right: 1rem;
         }
 
@@ -183,12 +182,14 @@
     }
 
     .options {
-        margin-left: 1rem;
+        margin-left: 2rem;
+        margin-bottom: 1rem;
         max-height: 0;
         overflow: hidden;
+        transition: all 0.3s ease;
 
         .toggled + & {
-            max-height: 10rem;
+            max-height: 3rem;
         }
     }
 
@@ -200,6 +201,7 @@
     .event-options {
         display: flex;
         flex-direction: column;
+        margin-bottom: 0.5rem;
     }
 
     .option, .event {
@@ -212,7 +214,7 @@
     .event {
         display: inline-block;
         padding: 0.5rem 1.25rem;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
 
         &.has-options:after {
             content: (' ▼');
@@ -226,8 +228,9 @@
     }
 
     .option {
-        padding: 0.25rem 1.25rem;
+        padding: 0.35rem 1rem;
         margin-right: 1rem;
+        margin-top: 0.5rem;
     }
 
     .active-event {
@@ -236,10 +239,14 @@
     }
 
     .skip-continue {
-        float: right;
+        font-size: 1rem;
     }
 
     .options-header {
         display: flex;
+    }
+
+    .slider-label {
+        transform: translateY(0.25rem);
     }
 </style>
