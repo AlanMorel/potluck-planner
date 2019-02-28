@@ -9,7 +9,6 @@
                 <input type="text" name="host" :value="host" placeholder="Host Name" required @input="updateHost">
             </div>
             <div class="form-element">
-                <label for="date">Date and Time</label>
                 <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
                 <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
             </div>

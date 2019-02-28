@@ -142,7 +142,7 @@
     }
 
     .form-container {
-        max-width: 30rem;
+        max-width: 50rem;
         width: 100%;
         margin: auto;
         padding: 1.5rem 2rem;
