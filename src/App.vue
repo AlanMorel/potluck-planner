@@ -37,6 +37,7 @@
 
     h1 {
         margin-top: 0;
+        margin-bottom: 1rem;
     }
 
     h3 {
@@ -102,7 +103,6 @@
         border: 0;
         width: 100%;
         padding: 0.5rem 0.25rem;
-        max-width: 15rem;
         border-bottom: solid 1px lighten($primary-color, 60%);
 
         &:focus {
@@ -117,7 +117,7 @@
     input[type="date"],
     input[type="time"] {
         font-family: "Avenir", Helvetica, Arial, sans-serif;
-        max-width: calc(15rem / 2);
+        max-width: 50%;
     }
 
     .button {
@@ -148,6 +148,13 @@
         padding: 1.5rem 2rem;
         background-color: white;
         border-radius: 0.5rem;
+        overflow: hidden;
+    }
+
+    .form-container-with-splash {
+        padding: 0;
+        display: flex;
+        position: relative;
     }
 
     .form-element {
