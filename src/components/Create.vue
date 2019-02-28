@@ -11,11 +11,11 @@
             </div>
             <div class="form-element">
                 <label for="date">Date</label>
-                <input type="date" name="date" :value="date" placeholder="Date" required @input="updateDate">
+                <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
             </div>
             <div class="form-element">
                 <label for="time">Time</label>
-                <input type="time" name="time" :value="time" placeholder="Time" required @input="updateTime">
+                <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
             </div>
             <div class="form-element">
                 <label for="guests">Number of Guests</label>
@@ -66,12 +66,23 @@
                 this.$store.commit("updateGuests", e.target.value);
             },
             createNewPotluck() {
-                var numPeople = (this.people);
-                this.createSides(numPeople);
+                var numPeople = (this.guests);
+                var dish = {
+                    "name" : "",
+                    "type" : "",
+                    "dish" : ""
+                };
+                this.createSides(numPeople, dish);
             },
-            createSides(num) {
-                var sides = num/2;
-                console.log(sides);
+            createSides(num, dish) {
+                var numSides = Math.round(num/2.5);
+                var i = 0;
+                var sides = [];
+                for (i; i < numSides; i++) {
+                    sides.push(dish);
+                }
+                this.$store.state.sides = sides;
+                console.log(this.$store.getters.getSides);
             }
         }
     }

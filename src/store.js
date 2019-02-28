@@ -16,7 +16,8 @@ export default new Vuex.Store({
         getHost: state => state.host,
         getDate: state => state.date,
         getTime: state => state.time,
-        getGuests: state => state.guests
+        getGuests: state => state.guests,
+        getSides: state => state.sides
     },
     mutations: {
         updateTitle(state, title) {
@@ -33,6 +34,9 @@ export default new Vuex.Store({
         },
         updateGuests(state, guests) {
             state.guests = guests;
+        },
+        updateSides(state, sides) {
+            state.sides = sides;
         }
     },
     actions: {
