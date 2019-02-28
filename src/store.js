@@ -10,6 +10,10 @@ export default new Vuex.Store({
         date: "",
         time: "",
         guests: 10,
+        sides: [],
+        mains: [],
+        apps: [],
+        desserts: [],
         dietary: false,
         supplies: false,
         alcohol: false,
@@ -22,6 +26,10 @@ export default new Vuex.Store({
         getDate: state => state.date,
         getTime: state => state.time,
         getGuests: state => state.guests,
+        getSides: state => state.sides,
+        getMains: state => state.mains,
+        getApps: state => state.apps,
+        getDesserts: state => state.desserts,
         getDietary: state => state.dietary,
         getSupplies: state => state.supplies,
         getAlcohol: state => state.alcohols,
@@ -58,6 +66,15 @@ export default new Vuex.Store({
         },
         updateSides(state, sides) {
             state.sides = sides;
+        },
+        updateMains(state, mains) {
+            state.mains = mains;
+        },
+        updateApps(state, apps) {
+            state.apps = apps;
+        },
+        updateDesserts(state, desserts) {
+            state.desserts = desserts;
         }
     },
     actions: {
