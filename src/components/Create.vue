@@ -1,9 +1,9 @@
 <template>
-    <section class="form-container">
+    <section class="create-container form-container form-container-with-splash">
         <form class="create-potluck-form">
             <h3>Create a New Potluck</h3>
             <div class="form-element">
-                <input type="text" name="title" :value="title" placeholder="Title" required @input="updateTitle">
+                <input type="text" name="event" :value="event" placeholder="Event" required @input="updateEvent">
             </div>
             <div class="form-element">
                 <input type="text" name="host" :value="host" placeholder="Host Name" required @input="updateHost">
@@ -12,29 +12,37 @@
                 <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
                 <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
             </div>
-            <div class="form-element">
+            <div class="form-element single-line-form-element">
+                <label for="guests">Number of Guests</label>
                 <input type="number" name="guests" :value="guests" required @input="updateGuests" class="guest-input">
             </div>
             <div class="form-element">
                 <input type="text" name="location" :value="location" placeholder="Location" @input="updateLocation">
             </div>
             <div class="form-element">
-                <label for="notes">Notes</label>
                 <textarea name="notes" :value="notes" placeholder="Notes" @input="updateNotes"></textarea>
             </div>
             <div class="form-element">
                 <router-link to="/create/options" class="button explore-more">Next</router-link>
             </div>
         </form>
+        <div class="potluck-splash">
+            <img :src="splash" />
+        </div>
     </section>
 </template>
 
 <script>
     export default {
         name: "Create",
+        data() {
+            return {
+                splash: "https://www.thespruceeats.com/thmb/mmZ9HCaTJHyihZGqbL-DRxrUTJI=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/FrenchToasty-Oct-2-2011-5-06-AM-56b0b8635f9b58b7d0252b5f.JPG"
+            }
+        },
         computed: {
-            title() {
-                return this.$store.getters.getTitle;
+            event() {
+                return this.$store.getters.getEvent;
             },
             date() {
                 return this.$store.getters.getDate;
@@ -56,8 +64,8 @@
             }
         },
         methods: {
-            updateTitle(e) {
-                this.$store.commit("updateTitle", e.target.value);
+            updateEvent(e) {
+                this.$store.commit("updateEvent", e.target.value);
             },
             updateDate(e) {
                 this.$store.commit("updateDate", e.target.value);
@@ -84,8 +92,21 @@
 <style lang="scss">
 
     .create-potluck-form {
+        width: 50%;
+        padding: 2rem;
+
         h3 {
             margin-bottom: 1rem;
+        }
+    }
+
+    .potluck-splash {
+        width: 50%;
+
+        > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 

@@ -1,40 +1,45 @@
 <template>
-    <section class="form-container options-container">
-        <div class="options-header">
-            <h3>Options</h3>
-            <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
-                {{ shouldContinue() ? 'Continue' : 'Skip This Step' }}
-            </span>
+    <section class="form-container options-container form-container-with-splash">
+        <div class="options-form">
+            <div class="options-header">
+                <h3>Options</h3>
+                <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
+                    {{ shouldContinue() ? 'Continue' : 'Skip This Step' }}
+                </span>
+            </div>
+            <ul class="event-options">
+                <li v-for="event in events">
+                    <div class="event" @click="selectEvent(event)" :class="[
+                        isEventActive(event.name) ? 'active-event' : '',
+                        event.options ? 'has-options' : '',
+                        event.toggled ? 'toggled' : '']">{{ event.name }}</div>
+                    <ul class="options">
+                        <li v-for="option in event.options" class="option" :class="[
+                            isEventActive(option) ? 'active-event' : '']" @click="selectOption(option)">
+                            {{ option }}
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="form-element">
+                <label for="dietary">Dietary restrictions?</label>
+                <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary" class="slider">
+            </div>
+            <div class="form-element">
+                <label for="supplies">Do you need supplies?</label>
+                <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies" class="slider">
+            </div>
+            <div class="form-element">
+                <label for="kids">Kids?</label>
+                <input type="checkbox" name="kids" :value="kids" @input="updateKids" class="slider">
+            </div>
+            <div class="form-element">
+                <label for="alcohol">Alcohol?</label>
+                <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
+            </div>
         </div>
-        <ul class="event-options">
-            <li v-for="event in events">
-                <div class="event" @click="selectEvent(event)" :class="[
-                    isEventActive(event.name) ? 'active-event' : '',
-                    event.options ? 'has-options' : '',
-                    event.toggled ? 'toggled' : '']">{{ event.name }}</div>
-                <ul class="options">
-                    <li v-for="option in event.options" class="option" :class="[
-                        isEventActive(option) ? 'active-event' : '']" @click="selectOption(option)">
-                        {{ option }}
-                    </li>
-                </ul>
-            </li>
-        </ul>
-        <div class="form-element">
-            <label for="dietary">Dietary restrictions?</label>
-            <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary" class="slider">
-        </div>
-        <div class="form-element">
-            <label for="supplies">Do you need supplies?</label>
-            <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies" class="slider">
-        </div>
-        <div class="form-element">
-            <label for="kids">Kids?</label>
-            <input type="checkbox" name="kids" :value="kids" @input="updateKids" class="slider">
-        </div>
-        <div class="form-element">
-            <label for="alcohol">Alcohol?</label>
-            <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
+        <div class="potluck-splash">
+            <img :src="splash" />
         </div>
     </section>
 </template>
@@ -66,7 +71,8 @@
                             "Christmas"
                         ]
                     }
-                ]
+                ],
+                splash: "https://www.thespruceeats.com/thmb/Ck9PE1lWegA5ed-S-uiVSdrWCh0=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/UltimateRanchFriedChickenClubSandwich-GrilledCheeseSocial-5bf30d2146e0fb0026fa272c.JPG"
             }
         },
         computed: {
@@ -156,6 +162,7 @@
     $primary-color: #2c3e50;
 
     .options-container {
+
         label,
         .slider {
             display: inline-block;
@@ -168,6 +175,11 @@
         h3 {
             margin-right: auto;
         }
+    }
+
+    .options-form {
+        width: 50%;
+        padding: 2rem;
     }
 
     .options {

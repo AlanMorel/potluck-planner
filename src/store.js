@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        title: "",
+        event: "",
         host: "",
         date: "",
         time: "",
@@ -22,7 +22,7 @@ export default new Vuex.Store({
         kids: false
     },
     getters: {
-        getTitle: state => state.title,
+        getEvent: state => state.event,
         getHost: state => state.host,
         getDate: state => state.date,
         getTime: state => state.time,
@@ -39,8 +39,8 @@ export default new Vuex.Store({
         getKids: state => state.kids
     },
     mutations: {
-        updateTitle(state, title) {
-            state.title = title;
+        updateEvent(state, event) {
+            state.event = event;
         },
         updateHost(state, host) {
             state.host = host;
