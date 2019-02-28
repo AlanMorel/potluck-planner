@@ -7,19 +7,19 @@
             </div>
             <div class="form-element">
                 <label for="host">Host Name</label>
-                <input type="text" name="host" v-model="host" placeholder="Host Name" requred>
+                <input type="text" name="host" :value="host" placeholder="Host Name" required @input="updateHost">
             </div>
             <div class="form-element">
                 <label for="date">Date</label>
-                <input type="date" name="date" v-model="date" placeholder="Date" requred>
+                <input type="date" name="date" :value="date" placeholder="Date" required @input="updateDate">
             </div>
             <div class="form-element">
                 <label for="time">Time</label>
-                <input type="time" name="time" v-model="time" placeholder="Time" requred>
+                <input type="time" name="time" :value="time" placeholder="Time" required @input="updateTime">
             </div>
             <div class="form-element">
                 <label for="guests">Number of Guests</label>
-                <input type="number" name="guests" v-model="guests" required>
+                <input type="number" name="guests" :value="guests" required @input="updateGuests">
             </div>
             <div class="form-element">
                 <input type="submit" value="Create New Simple Potluck" class="button dark-button">
@@ -32,22 +32,38 @@
 <script>
     export default {
         name: "Create",
-        data() {
-            return {
-                date: "",
-                time: "",
-                host: "",
-                guests: 10
-            }
-        },
         computed: {
             title() {
                 return this.$store.getters.getTitle;
+            },
+            date() {
+                return this.$store.getters.getDate;
+            },
+            time() {
+                return this.$store.getters.getTime;
+            },
+            host() {
+                return this.$store.getters.getHost;
+            },
+            guests() {
+                return this.$store.getters.getGuests;
             }
         },
         methods: {
             updateTitle(e) {
                 this.$store.commit("updateTitle", e.target.value);
+            },
+            updateDate(e) {
+                this.$store.commit("updateDate", e.target.value);
+            },
+            updateTime(e) {
+                this.$store.commit("updateTime", e.target.value);
+            },
+            updateHost(e) {
+                this.$store.commit("updateHost", e.target.value);
+            },
+            updateGuests(e) {
+                this.$store.commit("updateGuests", e.target.value);
             },
             createNewPotluck() {
                 console.log("create new potluck!");
