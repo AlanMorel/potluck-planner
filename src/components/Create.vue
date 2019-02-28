@@ -23,7 +23,7 @@
             </div>
             <div class="form-element">
                 <input type="submit" value="Create New Simple Potluck" class="button dark-button">
-                <input type="submit" value="Or Explore More Options" class="button">
+                <router-link to="/create/options" class="button explore-more">Or Explore More Options</router-link>
             </div>
         </form>
     </section>
@@ -84,5 +84,12 @@
 
     .form-element {
         margin-bottom: 2rem;
+    }
+
+    .explore-more {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 0.25rem;
     }
 </style>
