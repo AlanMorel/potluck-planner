@@ -3,7 +3,7 @@
         <form @submit.prevent="createNewPotluck" class="create-potluck-form">
             <div class="form-element">
                 <label for="title">Title</label>
-                <input type="text" name="title" v-model="title" placeholder="Title" required>
+                <input type="text" name="title" :value="title" placeholder="Title" required @input="updateTitle">
             </div>
             <div class="form-element">
                 <label for="host">Host Name</label>
@@ -34,14 +34,21 @@
         name: "Create",
         data() {
             return {
-                title: "",
                 date: "",
                 time: "",
                 host: "",
                 guests: 10
             }
         },
+        computed: {
+            title() {
+                return this.$store.getters.getTitle;
+            }
+        },
         methods: {
+            updateTitle(e) {
+                this.$store.commit("updateTitle", e.target.value);
+            },
             createNewPotluck() {
                 console.log("create new potluck!");
             }
