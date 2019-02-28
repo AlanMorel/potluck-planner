@@ -39,12 +39,12 @@
         margin-top: 0;
     }
 
-    label {
-        display: block;
+    h3 {
+        margin: 0;
     }
 
-    h3 {
-        margin-top: 0;
+    label {
+        display: block;
     }
 
     ul {
@@ -75,13 +75,14 @@
     .nav-link {
         font-size: 1rem;
         text-decoration: none;
-        border: solid 1px $primary-color;
+        border: solid 1px lighten($primary-color, 60%);
         border-radius: 0.25rem;
         padding: 0.25rem 1rem;
         transition: all 0.15s ease;
         margin-right: 0.5rem;
 
         &:hover {
+            border-color: $primary-color;
             background-color: $primary-color;
             color: white;
         }
@@ -96,7 +97,8 @@
     input[type="number"],
     input[type="submit"],
     input[type="date"],
-    input[type="time"] {
+    input[type="time"],
+    textarea {
         border: 0;
         width: 100%;
         padding: 0.5rem 0.25rem;
@@ -106,6 +108,10 @@
         &:focus {
             border-color: $active-color;
         }
+    }
+
+    textarea {
+        resize: vertical;
     }
 
     input[type="date"],
@@ -121,6 +127,7 @@
         max-width: 20rem;
         border-radius: 0.5rem;
         border: solid 1px lighten($primary-color, 60%);
+        cursor: pointer;
     }
 
     .dark-button {
@@ -140,10 +147,54 @@
         margin: auto;
         padding: 1.5rem 2rem;
         background-color: white;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
     }
 
     .form-element {
         margin-bottom: 2rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    .slider {
+        width: auto;
+        display: block;
+        position: relative;
+        visibility: hidden;
+        cursor: pointer;
+        transform: translateY(-0.4rem);
+
+        &:before,
+        &:after {
+            content: '';
+            border-radius: 2rem;
+            height: 1.5rem;
+            display: block;
+            position: absolute;
+            visibility: visible;
+        }
+
+        &:before {
+            background-color: rgba(0, 0, 0, 0.25);
+            width: 2.75rem;
+            left: 0rem;
+        }
+
+        &:checked:before {
+            background-color: $primary-color;
+        }
+
+        &:after {
+            background-color: white;
+            width: 1.5rem;
+            transition: 0.3s ease;
+            transform: scale(0.8) translateX(0);
+        }
+
+        &:checked:after {
+            transform: scale(0.8) translateX(1.5rem);
+        }
     }
 </style>

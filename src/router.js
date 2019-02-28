@@ -5,7 +5,6 @@ import Home from "@/components/Home.vue";
 import Create from "@/components/Create.vue";
 import SignupSheet from "@/components/SignupSheet.vue";
 import Options from "@/components/Options.vue";
-import Finalize from "@/components/Finalize.vue";
 
 Vue.use(Router);
 
@@ -31,11 +30,6 @@ export default new Router({
             path: "/create/options",
             name: "options",
             component: Options,
-      	},
-        {
-            path: "/create/finalize",
-            name: "finalize",
-            component: Finalize,
       	}
     ]
 });

@@ -1,6 +1,11 @@
 <template>
-    <section class="form-container">
-        <h3>Options</h3>
+    <section class="form-container options-container">
+        <div class="options-header">
+            <h3>Options</h3>
+            <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
+                {{ shouldContinue() ? 'Continue' : 'Skip This Step' }}
+            </span>
+        </div>
         <ul class="event-options">
             <li v-for="event in events">
                 <div class="event" @click="selectEvent(event)" :class="[
@@ -16,22 +21,21 @@
             </li>
         </ul>
         <div class="form-element">
-            <label for="dietary">Dietary</label>
-            <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary">
+            <label for="dietary">Dietary restrictions?</label>
+            <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary" class="slider">
         </div>
         <div class="form-element">
-            <label for="supplies">Dietary</label>
-            <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies">
+            <label for="supplies">Do you need supplies?</label>
+            <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies" class="slider">
         </div>
         <div class="form-element">
-            <label for="kids">Kids</label>
-            <input type="checkbox" name="kids" :value="kids" @input="updateKids">
+            <label for="kids">Kids?</label>
+            <input type="checkbox" name="kids" :value="kids" @input="updateKids" class="slider">
         </div>
         <div class="form-element">
-            <label for="alcohol">Alcohol</label>
-            <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol">
+            <label for="alcohol">Alcohol?</label>
+            <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
         </div>
-        <router-link to="/create/finalize" class="button explore-more">Skip</router-link>
     </section>
 </template>
 
@@ -65,6 +69,26 @@
                 ]
             }
         },
+        computed: {
+            sides() {
+                return this.$store.getters.getSides;
+            },
+            guests() {
+                return this.$store.getters.getGuests;
+            },
+            dietary() {
+                return this.$store.getters.getDietary;
+            },
+            supplies() {
+                return this.$store.getters.getSupplies;
+            },
+            kids() {
+                return this.$store.getters.getKids;
+            },
+            alcohol() {
+                return this.$store.getters.getAlcohol;
+            }
+        },
         methods: {
             selectEvent(event) {
                 if (event.options) {
@@ -85,6 +109,9 @@
             isEventActive(eventName) {
                 return eventName === this.activeEvent;
             },
+            shouldContinue() {
+                return this.dietary || this.supplies || this.kids || this.alcohol || this.activeEvent.length;
+            },
             updateDietary(e) {
                 this.$store.commit("updateDietary", e.target.checked);
             },
@@ -96,6 +123,30 @@
             },
             updateAlcohol(e) {
                 this.$store.commit("updateAlcohol", e.target.checked);
+            },
+            createNewPotluck() {
+                var numPeople = this.guests;
+                var dish = {
+                    "name" : "",
+                    "type" : "",
+                    "dish" : ""
+                };
+                this.createDishes(numPeople, 2.5, dish, "Sides");
+                this.createDishes(numPeople, 10, dish, "Mains");
+                this.createDishes(numPeople, 5, dish, "Desserts");
+                this.createDishes(numPeople, 6.65, dish, "Apps");
+                this.$router.push("/signupSheet");
+            },
+            createDishes(people, denom, dish, type) {
+                var numDishes = Math.round(people / denom);
+                var i = 0;
+                var dishes = [];
+                var item = dish;
+                for (i; i < numDishes; i++) {
+                    item.type = type;
+                    dishes.push(item);
+                }
+                this.$store.commit("update" + type, dishes);
             }
         }
     }
@@ -103,6 +154,21 @@
 
 <style lang="scss">
     $primary-color: #2c3e50;
+
+    .options-container {
+        label,
+        .slider {
+            display: inline-block;
+        }
+
+        label {
+            margin-right: 1rem;
+        }
+
+        h3 {
+            margin-right: auto;
+        }
+    }
 
     .options {
         margin-left: 1rem;
@@ -112,6 +178,11 @@
         .toggled + & {
             max-height: 10rem;
         }
+    }
+
+    .options-header {
+        margin-bottom: 1.5rem;
+        align-items: center;
     }
 
     .event-options {
@@ -132,11 +203,13 @@
         margin-bottom: 1rem;
 
         &.has-options:after {
-            content: (' ^');
+            content: (' ▼');
+            font-size: 0.75rem;
+            margin-left: 0.25rem;
         }
 
         &.has-options.toggled:after {
-            content: (' v');
+            content: (' ▲');
         }
     }
 
@@ -148,5 +221,13 @@
     .active-event {
         background-color: $primary-color;
         color: white;
+    }
+
+    .skip-continue {
+        float: right;
+    }
+
+    .options-header {
+        display: flex;
     }
 </style>
