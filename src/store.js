@@ -13,7 +13,12 @@ export default new Vuex.Store({
         sides: [],
         mains: [],
         apps: [],
-        desserts: []
+        desserts: [],
+        dietary: false,
+        supplies: false,
+        alcohol: false,
+        kids: false,
+        sides: []
     },
     getters: {
         getTitle: state => state.title,
@@ -25,6 +30,11 @@ export default new Vuex.Store({
         getMains: state => state.mains,
         getApps: state => state.apps,
         getDesserts: state => state.desserts,
+        getDietary: state => state.dietary,
+        getSupplies: state => state.supplies,
+        getAlcohol: state => state.alcohols,
+        getKids: state => state.kids,
+        getSides: state => state.sides
     },
     mutations: {
         updateTitle(state, title) {
@@ -41,6 +51,18 @@ export default new Vuex.Store({
         },
         updateGuests(state, guests) {
             state.guests = guests;
+        },
+        updateDietary(state, dietary) {
+            state.dietary = dietary;
+        },
+        updateSupplies(state, supplies) {
+            state.supplies = supplies;
+        },
+        updateKids(state, kids) {
+            state.kids = kids;
+        },
+        updateAlcohol(state, alcohol) {
+            state.alcohol = alcohol;
         },
         updateSides(state, sides) {
             state.sides = sides;

@@ -8,12 +8,29 @@
                     event.options ? 'has-options' : '',
                     event.toggled ? 'toggled' : '']">{{ event.name }}</div>
                 <ul class="options">
-                    <li v-for="option in event.options" class="option" @click="selectOption(option)">
+                    <li v-for="option in event.options" class="option" :class="[
+                        isEventActive(option) ? 'active-event' : '']" @click="selectOption(option)">
                         {{ option }}
                     </li>
                 </ul>
             </li>
         </ul>
+        <div class="form-element">
+            <label for="dietary">Dietary</label>
+            <input type="checkbox" name="dietary" :value="dietary" @input="updateDietary">
+        </div>
+        <div class="form-element">
+            <label for="supplies">Dietary</label>
+            <input type="checkbox" name="supplies" :value="supplies" @input="updateSupplies">
+        </div>
+        <div class="form-element">
+            <label for="kids">Kids</label>
+            <input type="checkbox" name="kids" :value="kids" @input="updateKids">
+        </div>
+        <div class="form-element">
+            <label for="alcohol">Alcohol</label>
+            <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol">
+        </div>
         <router-link to="/create/finalize" class="button explore-more">Skip</router-link>
     </section>
 </template>
@@ -23,23 +40,19 @@
         name: "Options",
         data() {
             return {
-                activeEvent: "Brunch",
+                activeEvent: "",
                 events: [
                     {
                         name: "Brunch",
-
                     },
                     {
                         name: "Dinner Party",
-
                     },
                     {
                         name: "Birthday Party"
-
                     },
                     {
                         name: "Shower (Bridal, Baby)"
-
                     },
                     {
                         name: "Holiday",
@@ -56,16 +69,33 @@
             selectEvent(event) {
                 if (event.options) {
                     event.toggled = !event.toggled;
-                    return;
+                } else if (this.activeEvent === event.name) {
+                    this.activeEvent = "";
+                } else {
+                    this.activeEvent = event.name;
                 }
-                this.activeEvent = event.name;
-                console.log(event.name);
             },
             selectOption(option) {
-                console.log(option);
+                if (this.activeEvent === option) {
+                    this.activeEvent = "";
+                } else {
+                    this.activeEvent = option;
+                }
             },
             isEventActive(eventName) {
                 return eventName === this.activeEvent;
+            },
+            updateDietary(e) {
+                this.$store.commit("updateDietary", e.target.checked);
+            },
+            updateSupplies(e) {
+                this.$store.commit("updateSupplies", e.target.checked);
+            },
+            updateKids(e) {
+                this.$store.commit("updateKids", e.target.checked);
+            },
+            updateAlcohol(e) {
+                this.$store.commit("updateAlcohol", e.target.checked);
             }
         }
     }
@@ -89,30 +119,30 @@
         flex-direction: column;
     }
 
-    .event {
+    .option, .event {
         margin: 0;
-        display: inline-block;
-        padding: 0.5rem 1.25rem;
         border-radius: 0.25rem;
         border: solid 1px rgba(0, 0, 0, 0.15);
-        margin-bottom: 1rem;
         cursor: pointer;
+    }
+
+    .event {
+        display: inline-block;
+        padding: 0.5rem 1.25rem;
+        margin-bottom: 1rem;
 
         &.has-options:after {
-            content: ('^');
+            content: (' ^');
         }
 
         &.has-options.toggled:after {
-            content: ('v');
+            content: (' v');
         }
     }
 
     .option {
-        margin: 0;
         padding: 0.25rem 1.25rem;
-        border: solid 1px rgba(0, 0, 0, 0.15);
-        border-radius: 0.25rem;
-        margin-right: 0.5rem;
+        margin-right: 1rem;
     }
 
     .active-event {

@@ -12,8 +12,8 @@
             </div>
             <div class="form-element">
                 <label for="date">Date and Time</label>
-                <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate" class="half-width">
-                <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime" class="half-width">
+                <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
+                <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
             </div>
             <div class="form-element">
                 <label for="guests">Number of Guests</label>
