@@ -8,16 +8,24 @@
 <script>
     export default {
         name: "Finalize",
+        computed: {
+            sides() {
+                return this.$store.getters.getSides;
+            },
+            guests() {
+                return this.$store.getters.getGuests;
+            }
+        },
         methods: {
         	createNewPotluck() {
-                var numPeople = (this.$store.getters.getGuests);
+                var numPeople = this.guests;
                 var dish = {
                     "name" : "",
                     "type" : "",
                     "dish" : ""
                 };
                 this.createSides(numPeople, dish);
-                this.$router.push("/signupSheet");
+                // this.$router.push("/signupSheet");
             },
             createSides(num, dish) {
                 var numSides = Math.round(num/2.5);
@@ -26,8 +34,7 @@
                 for (i; i < numSides; i++) {
                     sides.push(dish);
                 }
-                this.$store.state.sides = sides;
-                console.log(this.$store.getters.getSides);
+                this.$store.commit("updateSides", sides);
             }
         }
     }

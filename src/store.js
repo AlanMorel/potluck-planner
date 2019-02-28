@@ -9,7 +9,8 @@ export default new Vuex.Store({
         host: "",
         date: "",
         time: "",
-        guests: 10
+        guests: 10,
+        sides: []
     },
     getters: {
         getTitle: state => state.title,
