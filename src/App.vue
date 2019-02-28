@@ -39,13 +39,12 @@
         margin-top: 0;
     }
 
-    label {
-        display: block;
-    }
-
     h3 {
         margin: 0;
-        margin-right: 1rem;
+    }
+
+    label {
+        display: block;
     }
 
     ul {
@@ -76,13 +75,14 @@
     .nav-link {
         font-size: 1rem;
         text-decoration: none;
-        border: solid 1px $primary-color;
+        border: solid 1px lighten($primary-color, 60%);
         border-radius: 0.25rem;
         padding: 0.25rem 1rem;
         transition: all 0.15s ease;
         margin-right: 0.5rem;
 
         &:hover {
+            border-color: $primary-color;
             background-color: $primary-color;
             color: white;
         }
@@ -97,7 +97,8 @@
     input[type="number"],
     input[type="submit"],
     input[type="date"],
-    input[type="time"] {
+    input[type="time"],
+    textarea {
         border: 0;
         width: 100%;
         padding: 0.5rem 0.25rem;
@@ -107,6 +108,10 @@
         &:focus {
             border-color: $active-color;
         }
+    }
+
+    textarea {
+        resize: vertical;
     }
 
     input[type="date"],
@@ -142,11 +147,15 @@
         margin: auto;
         padding: 1.5rem 2rem;
         background-color: white;
-        border-radius: 0.25rem;
+        border-radius: 0.5rem;
     }
 
     .form-element {
         margin-bottom: 2rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
     }
 
     .slider {

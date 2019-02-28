@@ -3,11 +3,9 @@
         <form class="create-potluck-form">
             <h3>Create a New Potluck</h3>
             <div class="form-element">
-                <label for="title">Title</label>
                 <input type="text" name="title" :value="title" placeholder="Title" required @input="updateTitle">
             </div>
             <div class="form-element">
-                <label for="host">Host Name</label>
                 <input type="text" name="host" :value="host" placeholder="Host Name" required @input="updateHost">
             </div>
             <div class="form-element">
@@ -18,6 +16,13 @@
             <div class="form-element">
                 <label for="guests">Number of Guests</label>
                 <input type="number" name="guests" :value="guests" required @input="updateGuests" class="guest-input">
+            </div>
+            <div class="form-element">
+                <input type="text" name="location" :value="location" placeholder="Location" @input="updateLocation">
+            </div>
+            <div class="form-element">
+                <label for="notes">Notes</label>
+                <textarea name="notes" :value="notes" placeholder="Notes" @input="updateNotes"></textarea>
             </div>
             <div class="form-element">
                 <router-link to="/create/options" class="button explore-more">Next</router-link>
@@ -44,6 +49,12 @@
             },
             guests() {
                 return this.$store.getters.getGuests;
+            },
+            location() {
+                return this.$store.getters.getLocation;
+            },
+            notes() {
+                return this.$store.getters.getNotes;
             }
         },
         methods: {
@@ -62,11 +73,23 @@
             updateGuests(e) {
                 this.$store.commit("updateGuests", e.target.value);
             },
+            updateLocation(e) {
+                this.$store.commit("updateLocation", e.target.value);
+            },
+            updateNotes(e) {
+                this.$store.commit("updateNotes", e.target.value);
+            },
         }
     }
 </script>
 
 <style lang="scss">
+
+    .create-potluck-form {
+        h3 {
+            margin-bottom: 1rem;
+        }
+    }
 
     .explore-more {
         display: inline-block;

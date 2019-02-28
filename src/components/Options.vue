@@ -3,7 +3,7 @@
         <div class="options-header">
             <h3>Options</h3>
             <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
-                {{ shouldContinue() ? 'Continue' : 'Skip' }}
+                {{ shouldContinue() ? 'Continue' : 'Skip This Step' }}
             </span>
         </div>
         <ul class="event-options">
@@ -163,6 +163,10 @@
 
         label {
             margin-right: 1rem;
+        }
+
+        h3 {
+            margin-right: auto;
         }
     }
 
