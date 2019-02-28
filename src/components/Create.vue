@@ -13,7 +13,7 @@
                 <input type="date" name="date" :value="date" placeholder="Date" @input="updateDate">
                 <input type="time" name="time" :value="time" placeholder="Time" @input="updateTime">
             </div>
-            <div class="form-element">
+            <div class="form-element single-line-form-element">
                 <label for="guests">Number of Guests</label>
                 <input type="number" name="guests" :value="guests" required @input="updateGuests" class="guest-input">
             </div>
@@ -21,7 +21,6 @@
                 <input type="text" name="location" :value="location" placeholder="Location" @input="updateLocation">
             </div>
             <div class="form-element">
-                <label for="notes">Notes</label>
                 <textarea name="notes" :value="notes" placeholder="Notes" @input="updateNotes"></textarea>
             </div>
             <div class="form-element">

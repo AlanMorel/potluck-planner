@@ -158,6 +158,15 @@
         }
     }
 
+    .single-line-form-element {
+        display: flex;
+
+        label {
+            margin-right: 1rem;
+            transform: translateY(0.25rem);
+        }
+    }
+
     .slider {
         width: auto;
         display: block;
