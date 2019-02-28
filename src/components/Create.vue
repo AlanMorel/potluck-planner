@@ -1,6 +1,6 @@
 <template>
     <section class="form-container">
-        <form @submit.prevent="createNewPotluck" class="create-potluck-form">
+        <form class="create-potluck-form">
             <h3>Create a New Potluck</h3>
             <div class="form-element">
                 <label for="title">Title</label>
@@ -62,25 +62,6 @@
             updateGuests(e) {
                 this.$store.commit("updateGuests", e.target.value);
             },
-            createNewPotluck() {
-                var numPeople = (this.guests);
-                var dish = {
-                    "name" : "",
-                    "type" : "",
-                    "dish" : ""
-                };
-                this.createSides(numPeople, dish);
-            },
-            createSides(num, dish) {
-                var numSides = Math.round(num/2.5);
-                var i = 0;
-                var sides = [];
-                for (i; i < numSides; i++) {
-                    sides.push(dish);
-                }
-                this.$store.state.sides = sides;
-                console.log(this.$store.getters.getSides);
-            }
         }
     }
 </script>
