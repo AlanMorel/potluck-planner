@@ -1,16 +1,16 @@
 <template>
-    <section>
+    <section class="create-potluck-container">
         <h1>Potluck Planner</h1>
-        <form @submit.prevent="createNewPotluck">
-            <div>
+        <form @submit.prevent="createNewPotluck" class="create-potluck-form">
+            <div class="form-element">
                 <label for="event">Event Name</label>
                 <input type="text" name="event" v-model="event">
             </div>
-            <div>
+            <div class="form-element">
                 <label for="host">Host Name</label>
                 <input type="text" name="host" v-model="host">
             </div>
-            <div>
+            <div class="form-element">
                 <label for="people">Number of People</label>
                 <input type="number" name="people" v-model="people">
             </div>
@@ -38,24 +38,13 @@
 </script>
 
 <style lang="scss">
-    label {
-        display: block;
-    }
-    h3 {
-      margin: 40px 0 0;
-    }
-
-    ul {
-      list-style-type: none;
-      padding: 0;
+    .create-potluck-container {
+        max-width: 30rem;
+        width: 100%;
+        margin: auto;
     }
 
-    li {
-      display: inline-block;
-      margin: 0 10px;
-    }
+    .create-potluck-form {
 
-    a {
-      color: #42b983;
     }
 </style>
