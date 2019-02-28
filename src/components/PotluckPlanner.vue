@@ -1,14 +1,22 @@
 <template>
     <section class="create-potluck-container">
-        <h1>Potluck Planner</h1>
+        <h1>SmörgasBoard</h1>
         <form @submit.prevent="createNewPotluck" class="create-potluck-form">
             <div class="form-element">
-                <label for="event">Event Name</label>
-                <input type="text" name="event" v-model="event" required>
+                <label for="title">Title</label>
+                <input type="text" name="title" v-model="title" required>
             </div>
             <div class="form-element">
                 <label for="host">Host Name</label>
                 <input type="text" name="host" v-model="host" requred>
+            </div>
+            <div class="form-element">
+                <label for="date">Date</label>
+                <input type="date" name="date" v-model="date" requred>
+            </div>
+            <div class="form-element">
+                <label for="time">Time</label>
+                <input type="time" name="time" v-model="time" requred>
             </div>
             <div class="form-element">
                 <label for="people">Number of People</label>
@@ -26,7 +34,9 @@
         name: "PotluckPlanner",
         data() {
             return {
-                event: "",
+                title: "",
+                date: "",
+                time: "",
                 host: "",
                 people: 1
             }

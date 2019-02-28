@@ -46,13 +46,20 @@
 
     input[type="text"],
     input[type="number"],
-    input[type="submit"] {
+    input[type="submit"],
+    input[type="date"],
+    input[type="time"] {
         border: 0;
         padding: 0.5rem 0.75rem;
         border-radius: 0.25rem;
         border: solid 1px rgba(0, 0, 0, 0.1);
         width: 100%;
         max-width: 10rem;
+    }
+
+    input[type="date"],
+    input[type="time"] {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
     }
 
     input[type="submit"] {
