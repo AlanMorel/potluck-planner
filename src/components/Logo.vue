@@ -17,7 +17,7 @@
         background-color: white;
 
         img {
-            width: 35rem;
+            width: 40rem;
         }
     }
 </style>

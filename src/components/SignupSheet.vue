@@ -5,6 +5,7 @@
         </section>
         <InfoBox />
         <section class="potluck-sheet form-container">
+            <Share />
             <div class="potluck-sheet__section">
                 <h3 class="potluck-sheet__header">Apps & Snacks</h3>
                 <span class="potluck-sheet__header-note">Recommended Serving Size 10-20</span>
@@ -239,11 +240,13 @@
 
 <script>
     import InfoBox from "@/components/InfoBox.vue";
+    import Share from "@/components/Share.vue";
 
     export default {
         name: "PotluckSheet",
         components: {
-            InfoBox
+            InfoBox,
+            Share
         },
         data() {
             return {
@@ -424,7 +427,7 @@
     .banner {
         position: relative;
         overflow: hidden;
-        height: 24rem;
+        height: 26rem;
         margin-bottom: 2rem;
 
         img {

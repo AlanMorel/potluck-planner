@@ -3,17 +3,20 @@
         <router-link to="/" class="header-link">
             <Logo />
         </router-link>
+        <ShareModal />
         <router-view />
     </div>
 </template>
 
 <script>
     import Logo from "@/components/Logo.vue";
+    import ShareModal from "@/components/ShareModal.vue";
 
     export default {
         name: "App",
         components: {
-            Logo
+            Logo,
+            ShareModal
         },
         computed: {
             backgroundColor() {
@@ -32,7 +35,7 @@
     html,
     body,
     #app {
-        min-height: 100%;
+        min-height: 100vh;
     }
 
     body {
@@ -76,32 +79,12 @@
         }
     }
 
-    nav {
-        margin-bottom: 3rem;
-    }
-
     a {
         color: $primary-color;
     }
 
     .header-link {
         text-decoration: none;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-        text-decoration: none;
-        border: solid 1px lighten($primary-color, 60%);
-        border-radius: 0.25rem;
-        padding: 0.25rem 1rem;
-        transition: all 0.15s ease;
-        margin-right: 0.5rem;
-
-        &:hover {
-            border-color: $primary-color;
-            background-color: $primary-color;
-            color: white;
-        }
     }
 
     input {
@@ -175,6 +158,7 @@
         padding: 0;
         display: flex;
         position: relative;
+        margin-top: 5rem;
     }
 
     .form-element {
