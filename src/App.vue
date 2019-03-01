@@ -1,15 +1,20 @@
 <template>
     <div id="app" v-bind:style="{ backgroundColor: backgroundColor }">
         <router-link to="/" class="header-link">
-            <h1>SmörgasBoard</h1>
+            <Logo />
         </router-link>
         <router-view />
     </div>
 </template>
 
 <script>
+    import Logo from "@/components/Logo.vue";
+
     export default {
         name: "App",
+        components: {
+            Logo
+        },
         computed: {
             backgroundColor() {
                 return this.$store.getters.getBackgroundColor;
@@ -225,5 +230,9 @@
         &:checked:after {
             transform: scale(0.8) translateX(1.5rem);
         }
+    }
+
+    .potluck-logo {
+
     }
 </style>

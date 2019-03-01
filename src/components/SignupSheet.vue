@@ -3,6 +3,7 @@
         <section class="banner">
             <img :src="getImage(banner)">
         </section>
+        <InfoBox />
         <section class="potluck-sheet form-container">
             <div class="potluck-sheet__section">
                 <h3 class="potluck-sheet__header">Apps & Snacks</h3>
@@ -201,8 +202,13 @@
 </template>
 
 <script>
+    import InfoBox from "@/components/InfoBox.vue";
+
     export default {
         name: "PotluckSheet",
+        components: {
+            InfoBox
+        },
         data() {
             return {
                 appTypes: ["App", "Snacks", "Chips & Dip", "Cheeseboard", "Finger Food"],
