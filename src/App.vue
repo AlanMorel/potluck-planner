@@ -46,6 +46,7 @@
         color: $primary-color;
         background-color: #F2F5F8;
         transition: background-color 0.5s ease;
+        padding-bottom: 10rem;
     }
 
     h1 {
