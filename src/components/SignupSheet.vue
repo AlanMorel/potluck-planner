@@ -320,6 +320,7 @@
 
     .potluck-sheet__signup--dish {
         margin-right: 0;
+        min-width: 11rem;
     }
 
     .potluck-sheet__signup--counter {
@@ -370,7 +371,7 @@
     .potluck-sheet--link-btn {
         margin: 0;
         margin-top: 0.8rem;
-        transform: translateX(-30px);
+        transform: translateX(-15px);
     }
 
     .v-icon {
@@ -397,7 +398,7 @@
         margin: 1rem;
         margin-top: 0.84rem;
         padding-top: 0;
-        margin-left: 0;
+        margin-left: 0.5rem;
 
         input[type="text"] {
             border-bottom: none;

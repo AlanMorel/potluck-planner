@@ -15,7 +15,7 @@
                         event.toggled ? 'toggled' : '']">{{ event.name }}</div>
                     <ul class="options">
                         <li v-for="option in event.options" class="option" :class="[
-                            isEventActive(option.name) ? 'active-event' : '']" @click="selectOption(option)">
+                            isEventActive(option.name) ? 'active-event' : '']" :id="option.name" @click="selectOption(option)">
                             {{ option.name }}
                         </li>
                     </ul>
@@ -121,11 +121,61 @@
                 this.$store.commit("updateAlcohol", e.target.checked);
             },
             createNewPotluck() {
-                this.createDishes(2.5, "Sides");
-                this.createDishes(10, "Mains");
-                this.createDishes(5, "Desserts");
-                this.createDishes(6.65, "Apps");
-                this.$router.push("/signupSheet");
+                var thanksgiving = document.getElementById("Thanksgiving");
+                if(thanksgiving.classList.contains("active-event")) {
+                    var apps = [{
+                        "name" : "",
+                        "type" : "Cheeseboard",
+                        "dish" : "Cheeseboard"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Chips & Dip",
+                        "dish" : "Pita Chips & Hummus"
+                    }
+                    ];
+                    var sides = [{
+                        "name" : "",
+                        "type" : "Starch",
+                        "dish" : "Stuffing"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Greens",
+                        "dish" : "Broccoli Casserole"
+                    }];
+                    var mains = [{
+                        "name" : "",
+                        "type" : "Meat",
+                        "dish" : "Turkey"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Vegetarian",
+                        "dish" : "Porto Filet"
+                    }];
+                    var desserts = [{
+                        "name" : "",
+                        "type" : "Pie",
+                        "dish" : "Apple Pie"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Ice Cream",
+                        "dish" : "Chocolate Therapy"
+                    }];
+                    this.$store.commit("updateApps", apps);
+                    this.$store.commit("updateSides", sides);
+                    this.$store.commit("updateMains", mains);
+                    this.$store.commit("updateDesserts", desserts);
+                    this.$router.push("/signupSheet");
+                } else {
+                    this.createDishes(2.5, "Sides");
+                    this.createDishes(10, "Mains");
+                    this.createDishes(5, "Desserts");
+                    this.createDishes(6.65, "Apps");
+                    this.$router.push("/signupSheet");
+                }
             },
             createDishes(denom, type) {
                 var numDishes = Math.round(this.guests / denom);
