@@ -47,7 +47,7 @@
         text-decoration: none;
         border: solid 1px lighten($primary-color, 60%);
         border-radius: 0.25rem;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 1.5rem;
         transition: all 0.15s ease;
         background-color: white;
         margin: 0 1rem;

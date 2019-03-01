@@ -62,7 +62,7 @@
         background-color: white;
         border-radius: 0.25rem;
         padding: 0.5rem 1rem;
-        width: 18rem;
+        width: 20rem;
         right: 0;
         position: absolute;
         bottom: 8rem;

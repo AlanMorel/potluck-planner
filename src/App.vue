@@ -32,7 +32,7 @@
     html,
     body,
     #app {
-        min-height: 100%;
+        min-height: 100vh;
     }
 
     body {
@@ -155,6 +155,7 @@
         padding: 0;
         display: flex;
         position: relative;
+        margin-top: 5rem;
     }
 
     .form-element {
