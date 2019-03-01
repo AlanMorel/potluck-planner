@@ -127,10 +127,11 @@
             createDishes(denom, type) {
                 var numDishes = Math.round(this.guests / denom);
                 var dishes = [];
+                var typeName = type.slice(0, -1);
                 for (var i = 0; i < numDishes; i++) {
                     var item = {
                         "name" : "",
-                        "type" : type,
+                        "type" : typeName,
                         "dish" : ""
                     };
                     dishes.push(item);
