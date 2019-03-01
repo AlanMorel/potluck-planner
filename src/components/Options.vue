@@ -125,45 +125,107 @@
                 if(thanksgiving.classList.contains("active-event")) {
                     var apps = [{
                         "name" : "",
-                        "type" : "Cheeseboard",
-                        "dish" : "Cheeseboard"
+                        "type" : "Snack",
+                        "dish" : "Cranberry Brie Bites",
+                        "link" : "https://www.thespruceeats.com/cranberry-brie-bites-4176316"
                     },
                     {
                         "name" : "",
                         "type" : "Chips & Dip",
-                        "dish" : "Pita Chips & Hummus"
+                        "dish" : "Tortilla & Artichoke Dip",
+                        "link" : "https://www.thespruceeats.com/easy-spinach-dip-recipe-3377686"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "App",
+                        "dish" : "Stuffed Brussels",
+                        "link" : "https://www.thespruceeats.com/top-stuffed-mushroom-recipes-4158372"
                     }
                     ];
                     var sides = [{
                         "name" : "",
-                        "type" : "Starch",
-                        "dish" : "Stuffing"
+                        "type" : "Grains",
+                        "dish" : "Sage Stuffing",
+                        "link" : "https://www.thespruceeats.com/oven-baked-stuffing-with-sage-995371"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Salad",
+                        "dish" : "Autumn Salad",
+                        "link" : "https://www.thespruceeats.com/colorful-autumn-salad-recipe-2096984"
                     },
                     {
                         "name" : "",
                         "type" : "Greens",
-                        "dish" : "Broccoli Casserole"
-                    }];
-                    var mains = [{
-                        "name" : "",
-                        "type" : "Meat",
-                        "dish" : "Turkey"
+                        "dish" : "Cranberry Butternut",
+                        "link" : "https://www.thespruceeats.com/roasted-brussels-sprouts-butternut-squash-cranberries-3988905"
                     },
                     {
                         "name" : "",
-                        "type" : "Vegetarian",
-                        "dish" : "Porto Filet"
+                        "type" : "Starch",
+                        "dish" : "Garlic Mashed Potatoes",
+                        "link" : "https://www.thespruceeats.com/candied-yams-with-marshmallows-4173737"
+                    },{
+                        "name" : "",
+                        "type" : "Starch",
+                        "dish" : "Candied Yams",
+                        "link" : "https://www.thespruceeats.com/roasted-garlic-mashed-potatoes-4173813"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "",
+                        "dish" : "",
+                        "link" : ""
+                    },{
+                        "name" : "",
+                        "type" : "",
+                        "dish" : "",
+                        "link" : ""
+                    },
+                    {
+                        "name" : "",
+                        "type" : "",
+                        "dish" : "",
+                        "link" : ""
+                    }
+                    ];
+                    var mains = [{
+                        "name" : "",
+                        "type" : "Poultry",
+                        "dish" : "Oven Turkey",
+                        "link" : "https://www.thespruceeats.com/oven-bag-turkey-recipe-2098986"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Meat",
+                        "dish" : "Spiral Ham",
+                        "link" : "https://www.thespruceeats.com/glazed-spiral-sliced-ham-recipe-480790"
                     }];
                     var desserts = [{
                         "name" : "",
                         "type" : "Pie",
-                        "dish" : "Apple Pie"
+                        "dish" : "Apple Pie",
+                        "link" : "https://www.thespruceeats.com/step-by-step-apple-pie-recipe-305498"
                     },
                     {
                         "name" : "",
                         "type" : "Ice Cream",
-                        "dish" : "Chocolate Therapy"
-                    }];
+                        "dish" : "Chocolate Therapy",
+                        "link" : ""
+                    },
+                    {
+                        "name" : "",
+                        "type" : "Pie",
+                        "dish" : "Pumpkin Pie",
+                        "link" : "https://www.thespruceeats.com/autumn-pumpkin-pie-3059962"
+                    },
+                    {
+                        "name" : "",
+                        "type" : "",
+                        "dish" : "",
+                        "link" : ""
+                    }
+                    ];
                     this.$store.commit("updateApps", apps);
                     this.$store.commit("updateSides", sides);
                     this.$store.commit("updateMains", mains);
@@ -185,7 +247,8 @@
                     var item = {
                         "name" : "",
                         "type" : typeName,
-                        "dish" : ""
+                        "dish" : "",
+                        "link" : ""
                     };
                     dishes.push(item);
                 }
