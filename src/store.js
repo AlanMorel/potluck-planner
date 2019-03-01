@@ -77,7 +77,7 @@ export default new Vuex.Store({
         getDesserts: state => state.desserts,
         getDietary: state => state.dietary,
         getSupplies: state => state.supplies,
-        getAlcohol: state => state.alcohols,
+        getAlcohol: state => state.alcohol,
         getKids: state => state.kids,
         getOccassions: state => state.occassions,
         getModal: state => state.modal
