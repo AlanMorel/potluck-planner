@@ -25,6 +25,7 @@ export default new Vuex.Store({
     },
     getters: {
         getBackgroundColor: state => state.backgroundColor,
+        getBanner: state => state.banner,
         getEvent: state => state.event,
         getHost: state => state.host,
         getDate: state => state.date,
@@ -89,6 +90,9 @@ export default new Vuex.Store({
         },
         updateBackgroundColor(state, color) {
             state.backgroundColor = color;
+        },
+        updateBanner(state, banner) {
+            state.banner = banner;
         }
     },
     actions: {

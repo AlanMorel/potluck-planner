@@ -1,7 +1,7 @@
 <template>
     <section>
         <section class="banner">
-            <img :src="getImage('splash1.jpg')">
+            <img :src="getImage(banner)">
         </section>
         <section class="potluck-sheet form-container">
             <div class="potluck-sheet__section">
@@ -203,6 +203,9 @@
             }
         },
         computed: {
+            banner() {
+                return this.$store.getters.getBanner;
+            },
             sides() {
                 return this.$store.getters.getSides;
             },
