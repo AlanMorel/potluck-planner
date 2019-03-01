@@ -13,8 +13,8 @@
 <style lang="scss">
     .logo {
         padding: 1.5rem;
-        margin-bottom: 0.5rem;
         text-align: center;
+        background-color: white;
 
         img {
             width: 35rem;
