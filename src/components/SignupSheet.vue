@@ -10,17 +10,17 @@
                 <h3 class="potluck-sheet__header">Apps & Snacks</h3>
                 <span class="potluck-sheet__header-note">Recommended Serving Size 10-20</span>
                 <ul>
-                    <li v-for="(app, index) in this.apps" class="potluck-sheet__signup">
+                    <li v-for="(app, index) in this.apps" class="potluck-sheet__signup" :data-index="index" data-dish="apps">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                         <div class="potluck-sheet__signup--name form-element">
                             <input type="text" name="guestName" placeholder="Name" :value="apps[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" id="dishName" :value="apps[index].dish" placeholder="Dish">
+                            <input type="text" name="dishName" class="dishName" :value="apps[index].dish" placeholder="Dish">
                         </div>
                         <v-btn
                           color="#A0C3CC"
-                          v-on:click="linkRecipe()"
+                          v-on:click="linkRecipe($event)"
                           flat
                           icon
                           class="potluck-sheet--link-btn"
@@ -67,17 +67,17 @@
                 <h3 class="potluck-sheet__header">Sides</h3>
                 <span class="potluck-sheet__header-note">Recommended Serving Size 4-6</span>
                 <ul>
-                    <li v-for="(side, index) in this.sides" class="potluck-sheet__signup">
+                    <li v-for="(side, index) in this.sides" class="potluck-sheet__signup sides" :data-index="index" data-dish="sides">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                         <div class="potluck-sheet__signup--name form-element">
                             <input type="text" name="guestName" placeholder="Name" :value="sides[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" id="dishName" placeholder="Dish" :value="sides[index].dish">
+                            <input type="text" name="dishName" class="dishName" placeholder="Dish" :value="sides[index].dish">
                         </div>
                         <v-btn
                           color="#A0C3CC"
-                          v-on:click="linkRecipe()"
+                          v-on:click="linkRecipe($event)"
                           flat
                           icon
                           class="potluck-sheet--link-btn"
@@ -124,17 +124,17 @@
                 <h3 class="potluck-sheet__header">Mains</h3>
                 <span class="potluck-sheet__header-note">Recommended Serving Size 10-12</span>
                 <ul>
-                    <li v-for="(main, index) in this.mains" class="potluck-sheet__signup">
+                    <li v-for="(main, index) in this.mains" class="potluck-sheet__signup" :data-index="index" data-dish="mains">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                         <div class="potluck-sheet__signup--name form-element">
                             <input type="text" name="guestName" placeholder="Name" :value="mains[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" id="dishName" placeholder="Dish" :value="mains[index].dish">
+                            <input type="text" name="dishName" class="dishName" placeholder="Dish" :value="mains[index].dish">
                         </div>
                         <v-btn
                           color="#A0C3CC"
-                          v-on:click="linkRecipe()"
+                          v-on:click="linkRecipe($event)"
                           flat
                           icon
                           class="potluck-sheet--link-btn"
@@ -181,17 +181,17 @@
                 <h3 class="potluck-sheet__header">Desserts</h3>
                 <span class="potluck-sheet__header-note">Recommended Serving Size 6-8</span>
                 <ul>
-                    <li v-for="(dessert, index) in this.desserts" class="potluck-sheet__signup">
+                    <li v-for="(dessert, index) in this.desserts" class="potluck-sheet__signup" :data-index="index" data-dish="desserts">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                         <div class="potluck-sheet__signup--name form-element">
                             <input type="text" name="guestName" placeholder="Name" :value="desserts[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" id="dishName" placeholder="Dish" :value="desserts[index].dish">
+                            <input type="text" name="dishName" class="dishName" placeholder="Dish" :value="desserts[index].dish">
                         </div>
                         <v-btn
                           color="#A0C3CC"
-                          v-on:click="linkRecipe()"
+                          v-on:click="linkRecipe($event)"
                           flat
                           icon
                           class="potluck-sheet--link-btn"
@@ -250,7 +250,7 @@
         },
         data() {
             return {
-                appTypes: ["App", "Snacks", "Chips & Dip", "Cheeseboard", "Hors d'oeuvres"],
+                appTypes: ["App", "Snack", "Chips & Dip", "Cheeseboard", "Hors d'oeuvres"],
                 sideTypes: ["Side", "Greens", "Grains", "Salad", "Meat", "Starch"],
                 mainTypes: ["Main", "Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
                 dessertTypes: ["Dessert", "Pie", "Cake", "Ice Cream", "Cookies", "Bars"]
@@ -279,7 +279,8 @@
                 dishes.push({
                     "name" : "",
                     "type" : "",
-                    "dish" : ""
+                    "dish" : "",
+                    "link" : ""
                 });
                 this.$store.commit("update" + type, dishes);
             },
@@ -291,9 +292,17 @@
             getImage(path) {
                 return require('../assets/' + path);
             },
-            linkRecipe() {
-                var query = document.getElementById("dishName").value;
-                window.open("https://www.thespruceeats.com/search?q=" + query, '_blank');
+            linkRecipe(event) {
+                var parent = event.currentTarget.parentNode;
+                var index = parseInt(parent.dataset.index);
+                var dishType = parent.dataset.dish;
+                var link = this[dishType][index].link;
+                if(link != '') {
+                    window.open(link, '_blank');
+                } else {
+                    var query = parent.children[2].children[0].value;
+                    window.open("https://www.thespruceeats.com/search?q=" + query, '_blank');
+                }
             }
         }
     }
@@ -375,6 +384,7 @@
         margin: 0;
         margin-top: 0.8rem;
         transform: translateX(-15px);
+        // display: none;
     }
 
     .v-icon {
