@@ -68,7 +68,8 @@
                     },
                     {
                         name: "Shower (Bridal, Baby)",
-                        color: "#edfbfb"
+                        color: "#edfbfb",
+                        banner: "splash2.jpg"
                     },
                     {
                         name: "Holiday",
@@ -77,7 +78,7 @@
                             {
                                 name: "Thanksgiving",
                                 color: "#f5e8da",
-                                banner: "splash2.jpg"
+                                banner: "thanksgiving.jpg"
                             },
                             {
                                 name: "Christmas",
