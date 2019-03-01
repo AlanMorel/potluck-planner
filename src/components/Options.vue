@@ -132,7 +132,7 @@
                     {
                         "name" : "",
                         "type" : "Chips & Dip",
-                        "dish" : "Tortilla & Artichoke Dip",
+                        "dish" : "Tortilla & Spinach Dip",
                         "link" : "https://www.thespruceeats.com/easy-spinach-dip-recipe-3377686"
                     },
                     {
@@ -163,7 +163,7 @@
                     {
                         "name" : "",
                         "type" : "Starch",
-                        "dish" : "Garlic Mashed Potatoes",
+                        "dish" : "Mashed Potatoes",
                         "link" : "https://www.thespruceeats.com/roasted-garlic-mashed-potatoes-4173813"
                     },{
                         "name" : "",
@@ -173,18 +173,18 @@
                     },
                     {
                         "name" : "",
-                        "type" : "",
+                        "type" : "Side",
                         "dish" : "",
                         "link" : ""
                     },{
                         "name" : "",
-                        "type" : "",
+                        "type" : "Side",
                         "dish" : "",
                         "link" : ""
                     },
                     {
                         "name" : "",
-                        "type" : "",
+                        "type" : "Side",
                         "dish" : "",
                         "link" : ""
                     }
@@ -221,7 +221,7 @@
                     },
                     {
                         "name" : "",
-                        "type" : "",
+                        "type" : "Dessert",
                         "dish" : "",
                         "link" : ""
                     }
