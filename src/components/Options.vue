@@ -137,17 +137,14 @@
                 this.$router.push("/signupSheet");
             },
             createDishes(denom, type) {
-                var guests = this.guests;
-                var numDishes = Math.round(guests / denom);
-                var i = 0;
+                var numDishes = Math.round(this.guests / denom);
                 var dishes = [];
-                var item = {
-                    "name" : "",
-                    "type" : "",
-                    "dish" : ""
-                };
-                for (i; i < numDishes; i++) {
-                    item.type = type;
+                for (var i = 0; i < numDishes; i++) {
+                    var item = {
+                        "name" : "",
+                        "type" : type,
+                        "dish" : ""
+                    };
                     dishes.push(item);
                 }
                 this.$store.commit("update" + type, dishes);

@@ -96,20 +96,24 @@
         name: "PotluckSheet",
         data() {
             return {
-                title: "",
-                sides: this.$store.getters.getSides,
-                apps: this.$store.getters.getApps,
-                mains: this.$store.getters.getMains,
-                desserts: this.$store.getters.getApps,
-                appTypes: ['Appetizer', 'Snacks', 'Chips & Dip', 'Cheeseboard', 'Finger Food'],
+                appTypes: ["Appetizer", "Snacks", "Chips & Dip", "Cheeseboard", "Finger Food"],
                 sideTypes: ["Greens", "Grains", "Salad", "Meat", "Starch"],
                 mainTypes: ["Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
                 dessertTypes: ["Pie", "Cake", "Ice Cream", "Cookies", "Bars"]
             }
         },
-        methods: {
-            createNewPotluck() {
-                console.log("sides", this.$store.getters.getSides);
+        computed: {
+            sides() {
+                return this.$store.getters.getSides;
+            },
+            apps() {
+                return this.$store.getters.getApps;
+            },
+            mains() {
+                return this.$store.getters.getMains;
+            },
+            desserts() {
+                return this.$store.getters.getDesserts;
             }
         }
     }
