@@ -6,6 +6,7 @@
         <section class="potluck-sheet form-container">
             <div class="potluck-sheet__section">
                 <h3 class="potluck-sheet__header">Apps & Snacks</h3>
+                <span class="potluck-sheet__header-note">Recommended Serving Size 10-20</span>
                 <ul>
                     <li v-for="(app, index) in this.apps" class="potluck-sheet__signup">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
@@ -52,7 +53,8 @@
                 </ul>
             </div>
             <div class="potluck-sheet__section">
-                <h3 class="potluck-sheet_header">Sides</h3>
+                <h3 class="potluck-sheet__header">Sides</h3>
+                <span class="potluck-sheet__header-note">Recommended Serving Size 4-6</span>
                 <ul>
                     <li v-for="(side, index) in this.sides" class="potluck-sheet__signup">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
@@ -100,6 +102,7 @@
             </div>
             <div class="potluck-sheet__section">
                 <h3 class="potluck-sheet__header">Mains</h3>
+                <span class="potluck-sheet__header-note">Recommended Serving Size 10-12</span>
                 <ul>
                     <li v-for="(main, index) in this.mains" class="potluck-sheet__signup">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
@@ -147,6 +150,7 @@
             </div>
             <div class="potluck-sheet__section">
                 <h3 class="potluck-sheet__header">Desserts</h3>
+                <span class="potluck-sheet__header-note">Recommended Serving Size 6-8</span>
                 <ul>
                     <li v-for="(dessert, index) in this.desserts" class="potluck-sheet__signup">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
@@ -257,7 +261,7 @@
     }
 
     .potluck-sheet__section {
-        margin-top: 1rem;
+        margin-top: 2rem;
     }
 
     .potluck-sheet__signup--name,
@@ -292,9 +296,22 @@
         height: 35px;
     }
 
+    .v-input {
+        font-size: 14px;
+    }
+
     .potluck-sheet--add-btn.v-btn--floating.v-btn--small, {
         width: 30px;
         height: 30px;
+    }
+
+    .potluck-sheet__header-note {
+        color: #8e8e8e;
+        margin-left: 20px;
+    }
+
+    .potluck-sheet__header {
+        display: inline-block;
     }
 
     .potluck-sheet--delete-btn {
