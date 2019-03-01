@@ -25,16 +25,19 @@ export default new Vuex.Store({
         occassions: [
             {
                 name: "Brunch",
+                color: "#bec2f3",
             },
             {
                 name: "Dinner Party",
+                color: "#edbef3",
             },
             {
-                name: "Birthday Party"
+                name: "Birthday Party",
+                color: "#bec9f3",
             },
             {
                 name: "Shower (Bridal, Baby)",
-                color: "#edfbfb",
+                color: "#bef3f3",
                 banner: "splash2.jpg"
             },
             {
@@ -43,12 +46,12 @@ export default new Vuex.Store({
                 options: [
                     {
                         name: "Thanksgiving",
-                        color: "#f5e8da",
+                        color: "#ffd3a4",
                         banner: "thanksgiving.jpg"
                     },
                     {
                         name: "Christmas",
-                        color: "#f5eaea",
+                        color: "#ffa4a4",
                         banner: "splash2.jpg"
                     }
                 ]

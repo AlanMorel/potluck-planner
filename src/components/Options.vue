@@ -90,6 +90,9 @@
                 } else {
                     this.activeEvent = event.name;
                 }
+                if (event.options) {
+                    return;
+                }
                 this.$store.commit("updateBackgroundColor", event.color ? event.color : "#F2F5F8");
                 this.$store.commit("updateBanner", event.banner ? event.banner : "generic.jpg");
             },
