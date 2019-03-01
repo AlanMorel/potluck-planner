@@ -15,8 +15,8 @@
                         event.toggled ? 'toggled' : '']">{{ event.name }}</div>
                     <ul class="options">
                         <li v-for="option in event.options" class="option" :class="[
-                            isEventActive(option) ? 'active-event' : '']" @click="selectOption(option)">
-                            {{ option }}
+                            isEventActive(option.name) ? 'active-event' : '']" @click="selectOption(option)">
+                            {{ option.name }}
                         </li>
                     </ul>
                 </li>
@@ -36,6 +36,9 @@
             <div class="form-element">
                 <label for="alcohol" class="slider-label">Would you like alcohol?</label>
                 <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
+            </div>
+            <div class="form-element">
+                <router-link to="/create" class="button explore-more">Back</router-link>
             </div>
         </div>
         <div class="potluck-splash">
@@ -61,14 +64,21 @@
                         name: "Birthday Party"
                     },
                     {
-                        name: "Shower (Bridal, Baby)"
+                        name: "Shower (Bridal, Baby)",
+                        color: "#edfbfb"
                     },
                     {
                         name: "Holiday",
                         toggled: false,
                         options: [
-                            "Thanksgiving",
-                            "Christmas"
+                            {
+                                name: "Thanksgiving",
+                                color: "#f1f0e6"
+                            },
+                            {
+                                name: "Christmas",
+                                color: "#f5eaea"
+                            }
                         ]
                     }
                 ]
@@ -103,13 +113,15 @@
                 } else {
                     this.activeEvent = event.name;
                 }
+                this.$store.commit("updateBackgroundColor", event.color ? event.color : "#F2F5F8");
             },
             selectOption(option) {
-                if (this.activeEvent === option) {
+                if (this.activeEvent === option.name) {
                     this.activeEvent = "";
                 } else {
-                    this.activeEvent = option;
+                    this.activeEvent = option.name;
                 }
+                this.$store.commit("updateBackgroundColor", option.color ? option.color : "#F2F5F8");
             },
             isEventActive(eventName) {
                 return eventName === this.activeEvent;

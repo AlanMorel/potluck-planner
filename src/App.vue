@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" v-bind:style="{ backgroundColor: backgroundColor }">
         <router-link to="/" class="header-link">
             <h1>SmörgasBoard</h1>
         </router-link>
@@ -16,6 +16,18 @@
         <router-view />
     </div>
 </template>
+
+<script>
+    export default {
+        name: "App",
+        computed: {
+            backgroundColor() {
+                return this.$store.getters.getBackgroundColor;
+            }
+        }
+    }
+</script>
+
 
 <style lang="scss">
 
@@ -39,6 +51,7 @@
         color: $primary-color;
         background-color: #F2F5F8;
         padding: 1rem;
+        transition: background-color 0.5s ease;
     }
 
     h1 {
