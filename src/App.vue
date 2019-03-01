@@ -147,6 +147,11 @@
         border-radius: 0.5rem;
         border: solid 1px lighten($primary-color, 60%);
         cursor: pointer;
+        transition: background-color 0.15s ease;
+
+        &:hover {
+            background-color: lighten($primary-color, 70%);
+        }
     }
 
     .dark-button {

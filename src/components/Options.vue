@@ -8,7 +8,7 @@
                 </span>
             </div>
             <ul class="event-options">
-                <li v-for="event in events">
+                <li v-for="event in occassions">
                     <div class="event" @click="selectEvent(event)" :class="[
                         isEventActive(event.name) ? 'active-event' : '',
                         event.options ? 'has-options' : '',
@@ -55,42 +55,13 @@
         name: "Options",
         data() {
             return {
-                activeEvent: "",
-                events: [
-                    {
-                        name: "Brunch",
-                    },
-                    {
-                        name: "Dinner Party",
-                    },
-                    {
-                        name: "Birthday Party"
-                    },
-                    {
-                        name: "Shower (Bridal, Baby)",
-                        color: "#edfbfb",
-                        banner: "splash2.jpg"
-                    },
-                    {
-                        name: "Holiday",
-                        toggled: false,
-                        options: [
-                            {
-                                name: "Thanksgiving",
-                                color: "#f5e8da",
-                                banner: "thanksgiving.jpg"
-                            },
-                            {
-                                name: "Christmas",
-                                color: "#f5eaea",
-                                banner: "splash2.jpg"
-                            }
-                        ]
-                    }
-                ]
+                activeEvent: ""
             }
         },
         computed: {
+            occassions() {
+                return this.$store.getters.getOccassions;
+            },
             sides() {
                 return this.$store.getters.getSides;
             },
@@ -120,7 +91,7 @@
                     this.activeEvent = event.name;
                 }
                 this.$store.commit("updateBackgroundColor", event.color ? event.color : "#F2F5F8");
-                this.$store.commit("updateBanner", event.banner ? event.banner : "splash1.jpg");
+                this.$store.commit("updateBanner", event.banner ? event.banner : "generic.jpg");
             },
             selectOption(option) {
                 if (this.activeEvent === option.name) {
@@ -129,7 +100,7 @@
                     this.activeEvent = option.name;
                 }
                 this.$store.commit("updateBackgroundColor", option.color ? option.color : "#F2F5F8");
-                this.$store.commit("updateBanner", option.banner ? option.banner : "splash1.jpg");
+                this.$store.commit("updateBanner", option.banner ? option.banner : "generic.jpg");
             },
             isEventActive(eventName) {
                 return eventName === this.activeEvent;
@@ -240,12 +211,34 @@
         &.has-options.toggled:after {
             content: (' ▲');
         }
+
+        &:hover {
+            background-color: lighten($primary-color, 70%);
+        }
+
+        &.active-event {
+
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
     }
 
     .option {
         padding: 0.35rem 1rem;
         margin-right: 1rem;
         margin-top: 0.5rem;
+
+        &:hover {
+            background-color: lighten($primary-color, 70%);
+        }
+
+        &.active-event {
+
+            &:hover {
+                background-color: $primary-color;
+            }
+        }
     }
 
     .active-event {
