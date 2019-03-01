@@ -164,12 +164,12 @@
                         "name" : "",
                         "type" : "Starch",
                         "dish" : "Garlic Mashed Potatoes",
-                        "link" : "https://www.thespruceeats.com/candied-yams-with-marshmallows-4173737"
+                        "link" : "https://www.thespruceeats.com/roasted-garlic-mashed-potatoes-4173813"
                     },{
                         "name" : "",
                         "type" : "Starch",
                         "dish" : "Candied Yams",
-                        "link" : "https://www.thespruceeats.com/roasted-garlic-mashed-potatoes-4173813"
+                        "link" : "https://www.thespruceeats.com/candied-yams-with-marshmallows-4173737"
                     },
                     {
                         "name" : "",

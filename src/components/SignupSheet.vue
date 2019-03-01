@@ -276,9 +276,10 @@
         methods: {
             addRow(type) {
                 var dishes = this[type];
+                var typeName = type.slice(0, -1);
                 dishes.push({
                     "name" : "",
-                    "type" : "",
+                    "type" : typeName,
                     "dish" : "",
                     "link" : ""
                 });
