@@ -1,7 +1,7 @@
 <template>
     <section>
         <section class="banner">
-            <img :src="getImgUrl('splash1.jpg')">
+            <img :src="getImage(banner)">
         </section>
         <section class="potluck-sheet form-container">
             <div class="potluck-sheet__section">
@@ -202,7 +202,6 @@
         name: "PotluckSheet",
         data() {
             return {
-                banner: "../assets/splash1.jpg",
                 appTypes: ["App", "Snacks", "Chips & Dip", "Cheeseboard", "Finger Food"],
                 sideTypes: ["Side", "Greens", "Grains", "Salad", "Meat", "Starch"],
                 mainTypes: ["Main", "Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
@@ -210,6 +209,9 @@
             }
         },
         computed: {
+            banner() {
+                return this.$store.getters.getBanner;
+            },
             sides() {
                 return this.$store.getters.getSides;
             },
@@ -238,8 +240,8 @@
                 dishes.splice(index,1);
                 this.$store.commit("update" + type, dishes);
             },
-            getImgUrl(pic) {
-                return require('../assets/' + pic)
+            getImage(path) {
+                return require('../assets/' + path);
             }
         }
     }
@@ -339,6 +341,7 @@
             width: 100%;
             position: absolute;
             transform: translateY(-50%);
+            top: 50%;
         }
     }
 </style>

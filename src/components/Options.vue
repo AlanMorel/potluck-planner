@@ -68,7 +68,8 @@
                     },
                     {
                         name: "Shower (Bridal, Baby)",
-                        color: "#edfbfb"
+                        color: "#edfbfb",
+                        banner: "splash2.jpg"
                     },
                     {
                         name: "Holiday",
@@ -76,11 +77,13 @@
                         options: [
                             {
                                 name: "Thanksgiving",
-                                color: "#f1f0e6"
+                                color: "#f5e8da",
+                                banner: "thanksgiving.jpg"
                             },
                             {
                                 name: "Christmas",
-                                color: "#f5eaea"
+                                color: "#f5eaea",
+                                banner: "splash2.jpg"
                             }
                         ]
                     }
@@ -117,6 +120,7 @@
                     this.activeEvent = event.name;
                 }
                 this.$store.commit("updateBackgroundColor", event.color ? event.color : "#F2F5F8");
+                this.$store.commit("updateBanner", event.banner ? event.banner : "splash1.jpg");
             },
             selectOption(option) {
                 if (this.activeEvent === option.name) {
@@ -125,6 +129,7 @@
                     this.activeEvent = option.name;
                 }
                 this.$store.commit("updateBackgroundColor", option.color ? option.color : "#F2F5F8");
+                this.$store.commit("updateBanner", option.banner ? option.banner : "splash1.jpg");
             },
             isEventActive(eventName) {
                 return eventName === this.activeEvent;
