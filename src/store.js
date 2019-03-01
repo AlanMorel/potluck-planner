@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         backgroundColor: "#F2F5F8",
+        banner: "",
         event: "",
         host: "",
         date: "",

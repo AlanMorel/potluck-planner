@@ -76,7 +76,7 @@
                         options: [
                             {
                                 name: "Thanksgiving",
-                                color: "#f1f0e6"
+                                color: "#f5e8da"
                             },
                             {
                                 name: "Christmas",

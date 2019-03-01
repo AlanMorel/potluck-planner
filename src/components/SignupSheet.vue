@@ -1,7 +1,7 @@
 <template>
     <section>
         <section class="banner">
-            <img :src="getImgUrl('splash1.jpg')">
+            <img :src="getImage('splash1.jpg')">
         </section>
         <section class="potluck-sheet form-container">
             <div class="potluck-sheet__section">
@@ -101,7 +101,6 @@
         name: "PotluckSheet",
         data() {
             return {
-                banner: "../assets/splash1.jpg",
                 appTypes: ["Appetizer", "Snacks", "Chips & Dip", "Cheeseboard", "Finger Food"],
                 sideTypes: ["Greens", "Grains", "Salad", "Meat", "Starch"],
                 mainTypes: ["Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
@@ -123,8 +122,8 @@
             }
         },
         methods: {
-            getImgUrl(pic) {
-                return require('../assets/' + pic)
+            getImage(path) {
+                return require('../assets/' + path);
             }
         }
     }
