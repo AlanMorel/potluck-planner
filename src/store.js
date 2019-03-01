@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
+        backgroundColor: "#F2F5F8",
         event: "",
         host: "",
         date: "",
@@ -22,6 +23,7 @@ export default new Vuex.Store({
         kids: false
     },
     getters: {
+        getBackgroundColor: state => state.backgroundColor,
         getEvent: state => state.event,
         getHost: state => state.host,
         getDate: state => state.date,
@@ -83,6 +85,9 @@ export default new Vuex.Store({
         },
         updateDesserts(state, desserts) {
             state.desserts = desserts;
+        },
+        updateBackgroundColor(state, color) {
+            state.backgroundColor = color;
         }
     },
     actions: {

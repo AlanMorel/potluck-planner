@@ -23,7 +23,7 @@
                 <textarea name="notes" :value="notes" placeholder="Notes" @input="updateNotes"></textarea>
             </div>
             <div class="form-element">
-                <router-link to="/create/options" class="button explore-more">Next</router-link>
+                <router-link to="/create/options" class="button nav-button">Continue</router-link>
             </div>
         </form>
         <div class="potluck-splash">
@@ -104,12 +104,14 @@
         }
     }
 
-    .explore-more {
+    .nav-button {
         display: inline-block;
         padding: 0.5rem 1rem;
         text-decoration: none;
         border-radius: 0.25rem;
         margin: 0;
+        margin-right: 1rem;
+        font-size: 1rem;
     }
 
     input[type="number"].guest-input {

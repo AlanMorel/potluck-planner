@@ -1,188 +1,193 @@
 <template>
-    <section class="potluck-sheet form-container">
-        <div class="potluck-sheet__section">
-            <h3 class="potluck-sheet__header">Apps & Snacks</h3>
-            <ul>
-                <li v-for="(app, index) in this.apps" class="potluck-sheet__signup">
-                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
-                    <div class="potluck-sheet__signup--name form-element">
-                        <input type="text" name="guestName" :value="guestName" placeholder="Name">
-                    </div>
-                    <div class="potluck-sheet__signup--dish form-element">
-                        <input type="text" name="dishName" placeholder="Dish">
-                    </div>
-                      <v-select
-                        item-text="Appetizer"
-                        item-value="Appetizer"
-                        :items="appTypes"
-                        class="potluck-sheet--type-btn"
-                      ></v-select>
-                    <div class="potluck-sheet__signup--notes form-element">
-                        <input type="text" name="notes" :value="notes" placeholder="Notes">
-                    </div>
-                    <v-btn
-                        v-on:click="deleteRow('apps', index)"
-                        color="#A0C3CC"
-                        flat
-                        icon
-                        class="potluck-sheet--delete-btn"
-                    >
-                      <v-icon>delete</v-icon>
-                    </v-btn>
-                </li>
-                <li class="potluck-sheet__signup" >
-                    <v-btn
-                        v-on:click="addRow('apps')"
-                      color="#A0C3CC"
-                      dark
-                      depressed
-                      small
-                      fab
-                      class="potluck-sheet--add-btn"
-                    >
-                      <v-icon>add</v-icon>
-                    </v-btn>
-                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
-                </li>
-            </ul>
-        </div>
-        <div class="potluck-sheet__section">
-            <h3 class="potluck-sheet_header">Sides</h3>
-            <ul>
-                <li v-for="(side, index) in this.sides" class="potluck-sheet__signup">
-                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
-                    <div class="potluck-sheet__signup--name form-element">
-                        <input type="text" name="guestName" :value="guestName" placeholder="Name">
-                    </div>
-                    <div class="potluck-sheet__signup--dish form-element">
-                        <input type="text" name="dishName" :value="dishName" placeholder="Dish">
-                    </div>
-                    <v-select
-                        item-text="Sides"
-                        item-value="Sides"
-                        :items="sideTypes"
-                        class="potluck-sheet--type-btn"
-                      ></v-select>
-                    <div class="potluck-sheet__signup--notes form-element">
-                        <input type="text" name="notes" :value="notes" placeholder="Notes">
-                    </div>
-                    <v-btn
-                        v-on:click="deleteRow('sides', index)"
-                        color="#A0C3CC"
-                        flat
-                        icon
-                        class="potluck-sheet--delete-btn"
-                    >
-                      <v-icon>delete</v-icon>
-                    </v-btn>
-                </li>
-                <li class="potluck-sheet__signup" >
-                    <v-btn
-                        v-on:click="addRow('sides')"
-                      color="#A0C3CC"
-                      dark
-                      depressed
-                      small
-                      fab
-                      class="potluck-sheet--add-btn"
-                    >
-                      <v-icon>add</v-icon>
-                    </v-btn>
-                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
-                </li>
-            </ul>
-        </div>
-        <div class="potluck-sheet__section">
-            <h3 class="potluck-sheet__header">Mains</h3>
-            <ul>
-                <li v-for="(main, index) in this.mains" class="potluck-sheet__signup">
-                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
-                    <div class="potluck-sheet__signup--name form-element">
-                        <input type="text" name="guestName" :value="guestName" placeholder="Name">
-                    </div>
-                    <div class="potluck-sheet__signup--dish form-element">
-                        <input type="text" name="dishName" :value="dishName" placeholder="Dish">
-                    </div>
-                    <v-select
-                        item-text="Mains"
-                        item-value="Mains"
-                        :items="mainTypes"
-                        class="potluck-sheet--type-btn"
-                      ></v-select>
-                    <div class="potluck-sheet__signup--notes form-element">
-                        <input type="text" name="notes" :value="notes" placeholder="Notes">
-                    </div>
-                    <v-btn
-                        v-on:click="deleteRow('mains', index)"
-                        color="#A0C3CC"
-                        flat
-                        icon
-                        class="potluck-sheet--delete-btn"
-                    >
-                      <v-icon>delete</v-icon>
-                    </v-btn>
-                </li>
-                <li class="potluck-sheet__signup" >
-                    <v-btn
-                        v-on:click="addRow('mains')"
-                      color="#A0C3CC"
-                      dark
-                      depressed
-                      small
-                      fab
-                      class="potluck-sheet--add-btn"
-                    >
-                      <v-icon>add</v-icon>
-                    </v-btn>
-                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
-                </li>
-            </ul>
-        </div>
-        <div class="potluck-sheet__section">
-            <h3 class="potluck-sheet__header">Desserts</h3>
-            <ul>
-                <li v-for="(dessert, index) in this.desserts" class="potluck-sheet__signup">
-                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
-                    <div class="potluck-sheet__signup--name form-element">
-                        <input type="text" name="guestName" :value="guestName" placeholder="Name">
-                    </div>
-                    <div class="potluck-sheet__signup--dish form-element">
-                        <input type="text" name="dishName" :value="dishName" placeholder="Dish">
-                    </div>
-                    <v-select
-                        item-text="Desserts"
-                        item-value="Desserts"
-                        :items="dessertTypes"
-                        class="potluck-sheet--type-btn"
-                      ></v-select>
-                    <div class="potluck-sheet__signup--notes form-element">
-                        <input type="text" name="notes" :value="notes" placeholder="Notes">
-                    </div>
-                    <v-btn
-                        v-on:click="deleteRow('desserts', index)"
-                        color="#A0C3CC"
-                        flat
-                        icon
-                        class="potluck-sheet--delete-btn"
-                    >
-                      <v-icon>delete</v-icon>
-                    </v-btn>
-                </li>
-                <li class="potluck-sheet__signup" >
-                    <v-btn
-                        v-on:click="addRow('desserts')"
-                        color="#A0C3CC"
-                        outline
-                        small
-                        fab
-                        class="potluck-sheet--add-btn"
-                    >
-                      <v-icon>add</v-icon>
-                    </v-btn>
-                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
-                </li>
-            </ul>
-        </div>
+    <section>
+        <section class="banner">
+            <img :src="getImgUrl('splash1.jpg')">
+        </section>
+        <section class="potluck-sheet form-container">
+            <div class="potluck-sheet__section">
+                <h3 class="potluck-sheet__header">Apps & Snacks</h3>
+                <ul>
+                    <li v-for="(app, index) in this.apps" class="potluck-sheet__signup">
+                        <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
+                        <div class="potluck-sheet__signup--name form-element">
+                            <input type="text" name="guestName" :value="guestName" placeholder="Name">
+                        </div>
+                        <div class="potluck-sheet__signup--dish form-element">
+                            <input type="text" name="dishName" placeholder="Dish">
+                        </div>
+                          <v-select
+                            item-text="Appetizer"
+                            item-value="Appetizer"
+                            :items="appTypes"
+                            class="potluck-sheet--type-btn"
+                          ></v-select>
+                        <div class="potluck-sheet__signup--notes form-element">
+                            <input type="text" name="notes" :value="notes" placeholder="Notes">
+                        </div>
+                        <v-btn
+                            v-on:click="deleteRow('apps', index)"
+                            color="#A0C3CC"
+                            flat
+                            icon
+                            class="potluck-sheet--delete-btn"
+                        >
+                          <v-icon>delete</v-icon>
+                        </v-btn>
+                    </li>
+                    <li class="potluck-sheet__signup" >
+                        <v-btn
+                            v-on:click="addRow('apps')"
+                          color="#A0C3CC"
+                          dark
+                          depressed
+                          small
+                          fab
+                          class="potluck-sheet--add-btn"
+                        >
+                          <v-icon>add</v-icon>
+                        </v-btn>
+                        <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="potluck-sheet__section">
+                <h3 class="potluck-sheet_header">Sides</h3>
+                <ul>
+                    <li v-for="(side, index) in this.sides" class="potluck-sheet__signup">
+                        <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
+                        <div class="potluck-sheet__signup--name form-element">
+                            <input type="text" name="guestName" :value="guestName" placeholder="Name">
+                        </div>
+                        <div class="potluck-sheet__signup--dish form-element">
+                            <input type="text" name="dishName" :value="dishName" placeholder="Dish">
+                        </div>
+                        <v-select
+                            item-text="Sides"
+                            item-value="Sides"
+                            :items="sideTypes"
+                            class="potluck-sheet--type-btn"
+                          ></v-select>
+                        <div class="potluck-sheet__signup--notes form-element">
+                            <input type="text" name="notes" :value="notes" placeholder="Notes">
+                        </div>
+                        <v-btn
+                            v-on:click="deleteRow('sides', index)"
+                            color="#A0C3CC"
+                            flat
+                            icon
+                            class="potluck-sheet--delete-btn"
+                        >
+                          <v-icon>delete</v-icon>
+                        </v-btn>
+                    </li>
+                    <li class="potluck-sheet__signup" >
+                        <v-btn
+                            v-on:click="addRow('sides')"
+                          color="#A0C3CC"
+                          dark
+                          depressed
+                          small
+                          fab
+                          class="potluck-sheet--add-btn"
+                        >
+                          <v-icon>add</v-icon>
+                        </v-btn>
+                        <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="potluck-sheet__section">
+                <h3 class="potluck-sheet__header">Mains</h3>
+                <ul>
+                    <li v-for="(main, index) in this.mains" class="potluck-sheet__signup">
+                        <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
+                        <div class="potluck-sheet__signup--name form-element">
+                            <input type="text" name="guestName" :value="guestName" placeholder="Name">
+                        </div>
+                        <div class="potluck-sheet__signup--dish form-element">
+                            <input type="text" name="dishName" :value="dishName" placeholder="Dish">
+                        </div>
+                        <v-select
+                            item-text="Mains"
+                            item-value="Mains"
+                            :items="mainTypes"
+                            class="potluck-sheet--type-btn"
+                          ></v-select>
+                        <div class="potluck-sheet__signup--notes form-element">
+                            <input type="text" name="notes" :value="notes" placeholder="Notes">
+                        </div>
+                        <v-btn
+                            v-on:click="deleteRow('mains', index)"
+                            color="#A0C3CC"
+                            flat
+                            icon
+                            class="potluck-sheet--delete-btn"
+                        >
+                          <v-icon>delete</v-icon>
+                        </v-btn>
+                    </li>
+                    <li class="potluck-sheet__signup" >
+                        <v-btn
+                            v-on:click="addRow('mains')"
+                          color="#A0C3CC"
+                          dark
+                          depressed
+                          small
+                          fab
+                          class="potluck-sheet--add-btn"
+                        >
+                          <v-icon>add</v-icon>
+                        </v-btn>
+                        <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="potluck-sheet__section">
+                <h3 class="potluck-sheet__header">Desserts</h3>
+                <ul>
+                    <li v-for="(dessert, index) in this.desserts" class="potluck-sheet__signup">
+                        <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
+                        <div class="potluck-sheet__signup--name form-element">
+                            <input type="text" name="guestName" :value="guestName" placeholder="Name">
+                        </div>
+                        <div class="potluck-sheet__signup--dish form-element">
+                            <input type="text" name="dishName" :value="dishName" placeholder="Dish">
+                        </div>
+                        <v-select
+                            item-text="Desserts"
+                            item-value="Desserts"
+                            :items="dessertTypes"
+                            class="potluck-sheet--type-btn"
+                          ></v-select>
+                        <div class="potluck-sheet__signup--notes form-element">
+                            <input type="text" name="notes" :value="notes" placeholder="Notes">
+                        </div>
+                        <v-btn
+                            v-on:click="deleteRow('desserts', index)"
+                            color="#A0C3CC"
+                            flat
+                            icon
+                            class="potluck-sheet--delete-btn"
+                        >
+                          <v-icon>delete</v-icon>
+                        </v-btn>
+                    </li>
+                    <li class="potluck-sheet__signup" >
+                        <v-btn
+                            v-on:click="addRow('desserts')"
+                            color="#A0C3CC"
+                            outline
+                            small
+                            fab
+                            class="potluck-sheet--add-btn"
+                        >
+                          <v-icon>add</v-icon>
+                        </v-btn>
+                        <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
     </section>
 </template>
 
@@ -191,6 +196,7 @@
         name: "PotluckSheet",
         data() {
             return {
+                banner: "../assets/splash1.jpg",
                 appTypes: ["Appetizer", "Snacks", "Chips & Dip", "Cheeseboard", "Finger Food"],
                 sideTypes: ["Greens", "Grains", "Salad", "Meat", "Starch"],
                 mainTypes: ["Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
@@ -225,12 +231,20 @@
                 var dishes = this[type];
                 dishes.splice(index,1);
                 this.$store.commit("update" + type, dishes);
+            },
+            getImgUrl(pic) {
+                return require('../assets/' + pic)
             }
         }
     }
 </script>
 
 <style lang="scss">
+    .potluck-sheet {
+        position: relative;
+        margin-top: -6rem;
+    }
+
     .potluck-sheet__signup {
         display: flex;
     }
@@ -303,5 +317,18 @@
     .v-menu__content {
         top: 10px !important;
         left: 0 !important;
+    }
+
+    .banner {
+        position: relative;
+        overflow: hidden;
+        height: 24rem;
+        margin-bottom: 2rem;
+
+        img {
+            width: 100%;
+            position: absolute;
+            transform: translateY(-50%);
+        }
     }
 </style>

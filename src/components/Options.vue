@@ -3,8 +3,8 @@
         <div class="options-form">
             <div class="options-header">
                 <h3>Options</h3>
-                <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
-                    {{ shouldContinue() ? 'Continue →' : 'Skip This Step' }}
+                <span to="/signupSheet" class="button nav-button" v-on:click="createNewPotluck">
+                    Skip This Step
                 </span>
             </div>
             <ul class="event-options">
@@ -15,8 +15,8 @@
                         event.toggled ? 'toggled' : '']">{{ event.name }}</div>
                     <ul class="options">
                         <li v-for="option in event.options" class="option" :class="[
-                            isEventActive(option) ? 'active-event' : '']" @click="selectOption(option)">
-                            {{ option }}
+                            isEventActive(option.name) ? 'active-event' : '']" @click="selectOption(option)">
+                            {{ option.name }}
                         </li>
                     </ul>
                 </li>
@@ -37,9 +37,15 @@
                 <label for="alcohol" class="slider-label">Would you like alcohol?</label>
                 <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
             </div>
+            <div class="form-element">
+                <router-link to="/create" class="button nav-button">Back</router-link>
+                <span to="/signupSheet" class="button nav-button" v-on:click="createNewPotluck">
+                    Continue
+                </span>
+            </div>
         </div>
         <div class="potluck-splash">
-            <img src="../assets/splash1.jpg">
+            <img src="../assets/splash2.jpg">
         </div>
     </section>
 </template>
@@ -61,14 +67,21 @@
                         name: "Birthday Party"
                     },
                     {
-                        name: "Shower (Bridal, Baby)"
+                        name: "Shower (Bridal, Baby)",
+                        color: "#edfbfb"
                     },
                     {
                         name: "Holiday",
                         toggled: false,
                         options: [
-                            "Thanksgiving",
-                            "Christmas"
+                            {
+                                name: "Thanksgiving",
+                                color: "#f1f0e6"
+                            },
+                            {
+                                name: "Christmas",
+                                color: "#f5eaea"
+                            }
                         ]
                     }
                 ]
@@ -103,19 +116,18 @@
                 } else {
                     this.activeEvent = event.name;
                 }
+                this.$store.commit("updateBackgroundColor", event.color ? event.color : "#F2F5F8");
             },
             selectOption(option) {
-                if (this.activeEvent === option) {
+                if (this.activeEvent === option.name) {
                     this.activeEvent = "";
                 } else {
-                    this.activeEvent = option;
+                    this.activeEvent = option.name;
                 }
+                this.$store.commit("updateBackgroundColor", option.color ? option.color : "#F2F5F8");
             },
             isEventActive(eventName) {
                 return eventName === this.activeEvent;
-            },
-            shouldContinue() {
-                return this.dietary || this.supplies || this.kids || this.alcohol || this.activeEvent.length;
             },
             updateDietary(e) {
                 this.$store.commit("updateDietary", e.target.checked);
@@ -233,10 +245,6 @@
     .active-event {
         background-color: $primary-color;
         color: white;
-    }
-
-    .skip-continue {
-        font-size: 1rem;
     }
 
     .options-header {
