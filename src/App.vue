@@ -76,32 +76,12 @@
         }
     }
 
-    nav {
-        margin-bottom: 3rem;
-    }
-
     a {
         color: $primary-color;
     }
 
     .header-link {
         text-decoration: none;
-    }
-
-    .nav-link {
-        font-size: 1rem;
-        text-decoration: none;
-        border: solid 1px lighten($primary-color, 60%);
-        border-radius: 0.25rem;
-        padding: 0.25rem 1rem;
-        transition: all 0.15s ease;
-        margin-right: 0.5rem;
-
-        &:hover {
-            border-color: $primary-color;
-            background-color: $primary-color;
-            color: white;
-        }
     }
 
     input {
