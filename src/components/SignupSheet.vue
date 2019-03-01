@@ -3,12 +3,13 @@
         <div class="potluck-sheet__section">
             <h3 class="potluck-sheet__header">Apps & Snacks</h3>
             <ul>
-                <li v-for="app in this.apps" class="potluck-sheet__signup">
+                <li v-for="(app, index) in this.apps" class="potluck-sheet__signup">
+                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                     <div class="potluck-sheet__signup--name form-element">
                         <input type="text" name="guestName" :value="guestName" placeholder="Name">
                     </div>
                     <div class="potluck-sheet__signup--dish form-element">
-                        <input type="text" name="dishName" :value="dishName" placeholder="Dish">
+                        <input type="text" name="dishName" placeholder="Dish">
                     </div>
                       <v-select
                         item-text="Appetizer"
@@ -19,13 +20,37 @@
                     <div class="potluck-sheet__signup--notes form-element">
                         <input type="text" name="notes" :value="notes" placeholder="Notes">
                     </div>
+                    <v-btn
+                        v-on:click="deleteRow('apps', index)"
+                        color="#A0C3CC"
+                        flat
+                        icon
+                        class="potluck-sheet--delete-btn"
+                    >
+                      <v-icon>delete</v-icon>
+                    </v-btn>
+                </li>
+                <li class="potluck-sheet__signup" >
+                    <v-btn
+                        v-on:click="addRow('apps')"
+                      color="#A0C3CC"
+                      dark
+                      depressed
+                      small
+                      fab
+                      class="potluck-sheet--add-btn"
+                    >
+                      <v-icon>add</v-icon>
+                    </v-btn>
+                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
                 </li>
             </ul>
         </div>
         <div class="potluck-sheet__section">
             <h3 class="potluck-sheet_header">Sides</h3>
             <ul>
-                <li v-for="side in this.sides" class="potluck-sheet__signup">
+                <li v-for="(side, index) in this.sides" class="potluck-sheet__signup">
+                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                     <div class="potluck-sheet__signup--name form-element">
                         <input type="text" name="guestName" :value="guestName" placeholder="Name">
                     </div>
@@ -41,13 +66,37 @@
                     <div class="potluck-sheet__signup--notes form-element">
                         <input type="text" name="notes" :value="notes" placeholder="Notes">
                     </div>
+                    <v-btn
+                        v-on:click="deleteRow('sides', index)"
+                        color="#A0C3CC"
+                        flat
+                        icon
+                        class="potluck-sheet--delete-btn"
+                    >
+                      <v-icon>delete</v-icon>
+                    </v-btn>
+                </li>
+                <li class="potluck-sheet__signup" >
+                    <v-btn
+                        v-on:click="addRow('sides')"
+                      color="#A0C3CC"
+                      dark
+                      depressed
+                      small
+                      fab
+                      class="potluck-sheet--add-btn"
+                    >
+                      <v-icon>add</v-icon>
+                    </v-btn>
+                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
                 </li>
             </ul>
         </div>
         <div class="potluck-sheet__section">
             <h3 class="potluck-sheet__header">Mains</h3>
             <ul>
-                <li v-for="main in this.mains" class="potluck-sheet__signup">
+                <li v-for="(main, index) in this.mains" class="potluck-sheet__signup">
+                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                     <div class="potluck-sheet__signup--name form-element">
                         <input type="text" name="guestName" :value="guestName" placeholder="Name">
                     </div>
@@ -63,13 +112,37 @@
                     <div class="potluck-sheet__signup--notes form-element">
                         <input type="text" name="notes" :value="notes" placeholder="Notes">
                     </div>
+                    <v-btn
+                        v-on:click="deleteRow('mains', index)"
+                        color="#A0C3CC"
+                        flat
+                        icon
+                        class="potluck-sheet--delete-btn"
+                    >
+                      <v-icon>delete</v-icon>
+                    </v-btn>
+                </li>
+                <li class="potluck-sheet__signup" >
+                    <v-btn
+                        v-on:click="addRow('mains')"
+                      color="#A0C3CC"
+                      dark
+                      depressed
+                      small
+                      fab
+                      class="potluck-sheet--add-btn"
+                    >
+                      <v-icon>add</v-icon>
+                    </v-btn>
+                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
                 </li>
             </ul>
         </div>
         <div class="potluck-sheet__section">
             <h3 class="potluck-sheet__header">Desserts</h3>
             <ul>
-                <li v-for="dessert in this.desserts" class="potluck-sheet__signup">
+                <li v-for="(dessert, index) in this.desserts" class="potluck-sheet__signup">
+                    <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
                     <div class="potluck-sheet__signup--name form-element">
                         <input type="text" name="guestName" :value="guestName" placeholder="Name">
                     </div>
@@ -85,6 +158,28 @@
                     <div class="potluck-sheet__signup--notes form-element">
                         <input type="text" name="notes" :value="notes" placeholder="Notes">
                     </div>
+                    <v-btn
+                        v-on:click="deleteRow('desserts', index)"
+                        color="#A0C3CC"
+                        flat
+                        icon
+                        class="potluck-sheet--delete-btn"
+                    >
+                      <v-icon>delete</v-icon>
+                    </v-btn>
+                </li>
+                <li class="potluck-sheet__signup" >
+                    <v-btn
+                        v-on:click="addRow('desserts')"
+                        color="#A0C3CC"
+                        outline
+                        small
+                        fab
+                        class="potluck-sheet--add-btn"
+                    >
+                      <v-icon>add</v-icon>
+                    </v-btn>
+                    <div class="potluck-sheet__signup-add-text">Add a New Dish</div>
                 </li>
             </ul>
         </div>
@@ -115,6 +210,22 @@
             desserts() {
                 return this.$store.getters.getDesserts;
             }
+        },
+        methods: {
+            addRow(type) {
+                var dishes = this[type];
+                dishes.push({
+                    "name" : "",
+                    "type" : "",
+                    "dish" : ""
+                });
+                this.$store.commit("update" + type, dishes);
+            },
+            deleteRow(type, index) {
+                var dishes = this[type];
+                dishes.splice(index,1);
+                this.$store.commit("update" + type, dishes);
+            }
         }
     }
 </script>
@@ -124,20 +235,64 @@
         display: flex;
     }
 
+    .potluck-sheet__section {
+        margin-top: 1rem;
+    }
+
     .potluck-sheet__signup--name,
     .potluck-sheet__signup--type,
     .potluck-sheet__signup--dish,
-    .potluck-sheet__signup--notes {
+    .potluck-sheet__signup--notes,
+    .potluck-sheet__signup--counter {
         margin: 1rem;
     }
 
+    .potluck-sheet__signup--counter {
+        line-height: 2.5rem;
+        font-size: 1rem;
+        color: #6495A3;
+        margin-right: 0;
+    }
+
     .theme--light.v-text-field>.v-input__control>.v-input__slot:before {
-        border-color: #A0C3CC;
+        border-color: #cbd7e3;
+    }
+
+    .theme--light.v-text-field > .v-input__control > .v-input__slot:hover:before {
+        border-color: #256cb3;
+    }
+
+    .v-text-field__details {
+        display: none;
+    }
+
+    .v-input__slot {
+        margin-bottom: 0;
+        height: 35px;
+    }
+
+    .potluck-sheet--add-btn.v-btn--floating.v-btn--small, {
+        width: 30px;
+        height: 30px;
+    }
+
+    .potluck-sheet--delete-btn {
+        margin-left: 0;
+        margin-top: 1.5rem;
+    }
+
+    .potluck-sheet__signup-add-text {
+        line-height: 44px;
+        color: #8e8e8e;
     }
 
     .potluck-sheet--type-btn {
         min-width: 10rem;
         text-transform: capitalize;
+        height: 35px;
+        margin: 1rem;
+        margin-top: 0.84rem;
+        padding-top: 0;
 
         input[type="text"] {
             border-bottom: none;
