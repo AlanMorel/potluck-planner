@@ -217,10 +217,6 @@
             }
         },
         methods: {
-<<<<<<< HEAD
-            getImage(path) {
-                return require('../assets/' + path);
-=======
             addRow(type) {
                 var dishes = this[type];
                 dishes.push({
@@ -235,9 +231,8 @@
                 dishes.splice(index,1);
                 this.$store.commit("update" + type, dishes);
             },
-            getImgUrl(pic) {
-                return require('../assets/' + pic)
->>>>>>> 9d75d0703e1fd4ecce41a4734a8d325625983a1b
+            getImage(path) {
+                return require('../assets/' + path);
             }
         }
     }
