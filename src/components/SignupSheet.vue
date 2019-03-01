@@ -15,8 +15,17 @@
                             <input type="text" name="guestName" placeholder="Name" :value="apps[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" :value="apps[index].dish" placeholder="Dish">
+                            <input type="text" name="dishName" id="dishName" :value="apps[index].dish" placeholder="Dish">
                         </div>
+                        <v-btn
+                          color="#A0C3CC"
+                          v-on:click="linkRecipe()"
+                          flat
+                          icon
+                          class="potluck-sheet--link-btn"
+                        >
+                          <v-icon>link</v-icon>
+                        </v-btn>
                           <v-select
                             item-text="Appetizer"
                             item-value="Appetizer"
@@ -63,8 +72,17 @@
                             <input type="text" name="guestName" placeholder="Name" :value="sides[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" placeholder="Dish" :value="sides[index].dish">
+                            <input type="text" name="dishName" id="dishName" placeholder="Dish" :value="sides[index].dish">
                         </div>
+                        <v-btn
+                          color="#A0C3CC"
+                          v-on:click="linkRecipe()"
+                          flat
+                          icon
+                          class="potluck-sheet--link-btn"
+                        >
+                          <v-icon>link</v-icon>
+                        </v-btn>
                         <v-select
                             item-text="Sides"
                             item-value="Sides"
@@ -111,8 +129,17 @@
                             <input type="text" name="guestName" placeholder="Name" :value="mains[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" placeholder="Dish" :value="mains[index].dish">
+                            <input type="text" name="dishName" id="dishName" placeholder="Dish" :value="mains[index].dish">
                         </div>
+                        <v-btn
+                          color="#A0C3CC"
+                          v-on:click="linkRecipe()"
+                          flat
+                          icon
+                          class="potluck-sheet--link-btn"
+                        >
+                          <v-icon>link</v-icon>
+                        </v-btn>
                         <v-select
                             item-text="Mains"
                             item-value="Mains"
@@ -159,8 +186,17 @@
                             <input type="text" name="guestName" placeholder="Name" :value="desserts[index].name">
                         </div>
                         <div class="potluck-sheet__signup--dish form-element">
-                            <input type="text" name="dishName" placeholder="Dish" :value="desserts[index].dish">
+                            <input type="text" name="dishName" id="dishName" placeholder="Dish" :value="desserts[index].dish">
                         </div>
+                        <v-btn
+                          color="#A0C3CC"
+                          v-on:click="linkRecipe()"
+                          flat
+                          icon
+                          class="potluck-sheet--link-btn"
+                        >
+                          <v-icon>link</v-icon>
+                        </v-btn>
                         <v-select
                             item-text="Desserts"
                             item-value="Desserts"
@@ -211,7 +247,7 @@
         },
         data() {
             return {
-                appTypes: ["App", "Snacks", "Chips & Dip", "Cheeseboard", "Finger Food"],
+                appTypes: ["App", "Snacks", "Chips & Dip", "Cheeseboard", "Hors d'oeuvres"],
                 sideTypes: ["Side", "Greens", "Grains", "Salad", "Meat", "Starch"],
                 mainTypes: ["Main", "Meat", "Red Meat", "Poultry", "Fish", "Vegetarian"],
                 dessertTypes: ["Dessert", "Pie", "Cake", "Ice Cream", "Cookies", "Bars"]
@@ -251,6 +287,10 @@
             },
             getImage(path) {
                 return require('../assets/' + path);
+            },
+            linkRecipe() {
+                var query = document.getElementById("dishName").value;
+                window.location = "https://www.thespruceeats.com/search?q=" + query;
             }
         }
     }
@@ -276,6 +316,10 @@
     .potluck-sheet__signup--notes,
     .potluck-sheet__signup--counter {
         margin: 1rem;
+    }
+
+    .potluck-sheet__signup--dish {
+        margin-right: 0;
     }
 
     .potluck-sheet__signup--counter {
@@ -306,9 +350,12 @@
         font-size: 14px;
     }
 
-    .potluck-sheet--add-btn.v-btn--floating.v-btn--small, {
-        width: 30px;
-        height: 30px;
+    .potluck-sheet--add-btn,
+    .potluck-sheet--link-btn {
+        &.v-btn--floating.v-btn--small, {
+            width: 30px;
+            height: 30px;
+        }
     }
 
     .potluck-sheet__header-note {
@@ -320,13 +367,22 @@
         display: inline-block;
     }
 
+    .potluck-sheet--link-btn {
+        margin: 0;
+        margin-top: 0.8rem;
+        transform: translateX(-30px);
+    }
+
+    .v-icon {
+       .potluck-sheet--delete-btn &,
+       .potluck-sheet--link-btn & {
+        font-size: 20px;
+       }
+    }
+
     .potluck-sheet--delete-btn {
         margin-left: 0;
         margin-top: 1.5rem;
-
-        .v-icon {
-            font-size: 20px;
-        }
     }
 
     .potluck-sheet__signup-add-text {
@@ -335,12 +391,13 @@
     }
 
     .potluck-sheet--type-btn {
-        min-width: 10rem;
+        min-width: 7rem;
         text-transform: capitalize;
         height: 35px;
         margin: 1rem;
         margin-top: 0.84rem;
         padding-top: 0;
+        margin-left: 0;
 
         input[type="text"] {
             border-bottom: none;
