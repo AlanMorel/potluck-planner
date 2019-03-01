@@ -3,8 +3,8 @@
         <div class="options-form">
             <div class="options-header">
                 <h3>Options</h3>
-                <span to="/signupSheet" class="button explore-more skip-continue" v-on:click="createNewPotluck">
-                    {{ shouldContinue() ? 'Continue →' : 'Skip This Step' }}
+                <span to="/signupSheet" class="button nav-button" v-on:click="createNewPotluck">
+                    Skip This Step
                 </span>
             </div>
             <ul class="event-options">
@@ -38,11 +38,14 @@
                 <input type="checkbox" name="alcohol" :value="alcohol" @input="updateAlcohol" class="slider">
             </div>
             <div class="form-element">
-                <router-link to="/create" class="button explore-more">Back</router-link>
+                <router-link to="/create" class="button nav-button">Back</router-link>
+                <span to="/signupSheet" class="button nav-button" v-on:click="createNewPotluck">
+                    Continue
+                </span>
             </div>
         </div>
         <div class="potluck-splash">
-            <img src="../assets/splash1.jpg">
+            <img src="../assets/splash2.jpg">
         </div>
     </section>
 </template>
@@ -125,9 +128,6 @@
             },
             isEventActive(eventName) {
                 return eventName === this.activeEvent;
-            },
-            shouldContinue() {
-                return this.dietary || this.supplies || this.kids || this.alcohol || this.activeEvent.length;
             },
             updateDietary(e) {
                 this.$store.commit("updateDietary", e.target.checked);
@@ -245,10 +245,6 @@
     .active-event {
         background-color: $primary-color;
         color: white;
-    }
-
-    .skip-continue {
-        font-size: 1rem;
     }
 
     .options-header {

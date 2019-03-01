@@ -50,7 +50,6 @@
         -moz-osx-font-smoothing: grayscale;
         color: $primary-color;
         background-color: #F2F5F8;
-        padding: 1rem;
         transition: background-color 0.5s ease;
     }
 
