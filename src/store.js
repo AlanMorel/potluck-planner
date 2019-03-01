@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         backgroundColor: "#F2F5F8",
-        banner: "",
+        banner: "generic.jpg",
         event: "",
         host: "",
         date: "",
@@ -21,7 +21,39 @@ export default new Vuex.Store({
         dietary: false,
         supplies: false,
         alcohol: false,
-        kids: false
+        kids: false,
+        occassions: [
+            {
+                name: "Brunch",
+            },
+            {
+                name: "Dinner Party",
+            },
+            {
+                name: "Birthday Party"
+            },
+            {
+                name: "Shower (Bridal, Baby)",
+                color: "#edfbfb",
+                banner: "splash2.jpg"
+            },
+            {
+                name: "Holiday",
+                toggled: false,
+                options: [
+                    {
+                        name: "Thanksgiving",
+                        color: "#f5e8da",
+                        banner: "thanksgiving.jpg"
+                    },
+                    {
+                        name: "Christmas",
+                        color: "#f5eaea",
+                        banner: "splash2.jpg"
+                    }
+                ]
+            }
+        ]
     },
     getters: {
         getBackgroundColor: state => state.backgroundColor,
@@ -40,7 +72,8 @@ export default new Vuex.Store({
         getDietary: state => state.dietary,
         getSupplies: state => state.supplies,
         getAlcohol: state => state.alcohols,
-        getKids: state => state.kids
+        getKids: state => state.kids,
+        getOccassions: state => state.occassions
     },
     mutations: {
         updateEvent(state, event) {
