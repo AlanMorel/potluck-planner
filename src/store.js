@@ -22,6 +22,9 @@ export default new Vuex.Store({
         supplies: false,
         alcohol: false,
         kids: false,
+        modal: {
+            opened: false
+        },
         occassions: [
             {
                 name: "Brunch",
@@ -76,7 +79,8 @@ export default new Vuex.Store({
         getSupplies: state => state.supplies,
         getAlcohol: state => state.alcohols,
         getKids: state => state.kids,
-        getOccassions: state => state.occassions
+        getOccassions: state => state.occassions,
+        getModal: state => state.modal
     },
     mutations: {
         updateEvent(state, event) {
@@ -129,6 +133,9 @@ export default new Vuex.Store({
         },
         updateBanner(state, banner) {
             state.banner = banner;
+        },
+        updateModal(state, modal) {
+            state.modal = modal;
         }
     },
     actions: {

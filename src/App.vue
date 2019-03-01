@@ -3,17 +3,20 @@
         <router-link to="/" class="header-link">
             <Logo />
         </router-link>
+        <ShareModal />
         <router-view />
     </div>
 </template>
 
 <script>
     import Logo from "@/components/Logo.vue";
+    import ShareModal from "@/components/ShareModal.vue";
 
     export default {
         name: "App",
         components: {
-            Logo
+            Logo,
+            ShareModal
         },
         computed: {
             backgroundColor() {
