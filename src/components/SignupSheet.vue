@@ -290,7 +290,7 @@
             },
             linkRecipe() {
                 var query = document.getElementById("dishName").value;
-                window.location = "https://www.thespruceeats.com/search?q=" + query;
+                window.open("https://www.thespruceeats.com/search?q=" + query, '_blank');
             }
         }
     }
