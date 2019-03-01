@@ -6,7 +6,6 @@
         <section class="potluck-sheet form-container">
             <div class="potluck-sheet__section">
                 <h3 class="potluck-sheet__header">Apps & Snacks</h3>
-                <p class="potluck-sheet__signup-add-text">All dishes should serve 20 people</p>
                 <ul>
                     <li v-for="(app, index) in this.apps" class="potluck-sheet__signup">
                         <div class="potluck-sheet__signup--counter"><span>{{index + 1}}</span></div>
