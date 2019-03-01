@@ -3,16 +3,6 @@
         <router-link to="/" class="header-link">
             <h1>SmörgasBoard</h1>
         </router-link>
-        <nav>
-            <ul>
-                <li>
-                    <router-link to="/create" class="nav-link">Create</router-link>
-                </li>
-                <li>
-                    <router-link to="/join" class="nav-link">Join</router-link>
-                </li>
-            </ul>
-        </nav>
         <router-view />
     </div>
 </template>
